@@ -1,0 +1,139 @@
+\documentclass{proyectotesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Análisís sociofísico a la Cámara de Diputados Chilena}
+\author{Benjamín Matías Ortiz Edwards}
+\pronom{el}
+\postgrado{Magíster en Ciencias con mención en Física.}
+%\directora{}
+%\director{}
+\directores{Dra. Denisse Pastén y Dr. Víctor Muñoz}
+%\codirector{}
+\duracion{Primer y segundo semestre 2022.}
+\lugar{Grupo Planets (www.planets.cl), Departamento de Física, Facultad de Ciencias, Universidad de Chile.}
+\direccion{Las Palmeras 3425, Ñuñoa, Santiago, Chile. \\Dirección Postal: Casilla 653, Santiago, Chile. Fono: (56-2) 2978 7276.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\nacimiento{10 de febrero, 1997}
+\RUN{19.359.906-0}
+\telefono{(+56\;9)\:8656\;0757}
+\email{bedwedw@gmail.com}
+
+\begin{document}
+
+\maketitlepage
+
+\makepersonalinfo
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Educación}
+\begin{cvlist}{}
+\item[\textbf{Educación Superiror}] 
+\item[\textbf{2015 - 2020}] Licenciatura en Ciencias con mención en Física, Universidad de Chile.
+\item[\bf Educación Escolar]
+\item[\textbf{2010 - 2014}]  Enseñanza Básica y Media, Colegio Compañia de María Seminario.
+\end{cvlist}
+
+\subsection{Experiencia Profesional}
+\begin{cvlist}{}
+\item[\textbf{2020}]   Ayudante de Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
+\item[\textbf{2021}]   Ayudante de Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
+\item[\textbf{2019}]  Practicante "Practicas de Verano",  
+\item[\textbf{2021 - Presente}] Programador analísta, Centro de Inteligencia Territorial, Universidad Adolfo Ibañez. 
+
+\end{cvlist}
+
+\subsection{Presentaciones a Congresos}
+
+\begin{cvlist}{}
+\item[\textbf{2020}] \textbf{Ortiz Edwards, B.}, Pastén, D., y Muñoz, P. S. A complex network approach on the analysis of the Chilean presidential elections, using Twitter Data, {\it Complex Networks 2019}, Lisboa, Portugal, 10-12 de diciembre.
+
+\end{cvlist}
+
+\newpage
+
+\section{Exposición General del Proyecto}
+\subsection{Resumen}
+
+\subsection{Introducción}
+%La teoría de grafos busca abstraer esquemáticamente conjuntos de datos mediante criterios geométricos específicos a partir de nodos o vértices y algún tipo de relación que pueda presentar con otros nodos mediante aristas, donde estas mismas pueden presentar una orientación definida, existiendo un nodo fuente y un nodo de destino. El inicio de esta teoría fue en el año 1736 en manos de Leonhard Euler, en un artículo que trató el problema conocido como los puentes de Königsberg \cite{euler1741solutio} cuyo propósito inicial fue determinar la ruta más eficiente para cruzar todos los puentes de la ciudad, con la restricción de cruzarlos una sola vez. Euler demostró la imposibilidad del caso, sin embargo este hito ha permitido el desarrollo de importantes estudios, permitiendo desde entonces grandes avances en diversas áreas, tales como urbanismo \cite{bro2021surname},  economía \cite{gomez2020reducing}, redes biológicas \cite{ilias2020adaptive} e incluso en la selección de enfoques fundamentales en  la salud, como la propagación de enfermedades \cite{liu2020new}, entregando soluciones sustanciales a problemas complejos.\\
+
+
+%Existen diferentes tipos de grafos y estructuras de representación con los que trabajar, dependiendo de las características que se buscan explorar en cada investigación. En el análisis de los datos relevantes para este trabajo, lo que interesa es modelar series de tiempo como redes complejas. Para ello, se cuenta con las herramientas de la familia de algoritmos de visibilidad, que convierten series de tiempo en grafos donde la estructura de la serie se conserva en la topología del grafo \cite{lacasa2008time}, logrando construir un puente natural entre la teoría de redes complejas y el análisis de series de tiempo. %En este grafo cada nodo corresponde, en el mismo orden, a datos en serie, y se conectan dos nodos si existe visibilidad (oblicua) entre los datos correspondientes, es decir, si existe una línea recta que conecta los datos en serie, siempre que que esta ``línea de visibilidad" no cruce ninguna altura de datos intermedia.\\ %\cite{lacasa2012time}
+
+En las últimas décadas, distintos autores han explorado la idea de estudiar fenómenos sociales con herammientas de física estadística. En general, la pregunta de investigción es ``¿Como la interacción entre agentes sociales crea ordena a partir de una condicion inicial desordenada?'', y a traves de esta estructura general se han establecido lineas de investigación espécificas, entorno a, por ejemplo: dinámica de opiniones, dinámica cultural, dinámica del lenguaje, comportamiento de multitudes, formación de jerarquías, entre otras áreas relacionadas a los fenómenos sociales. 
+
+\begin{itemize}
+    \item modelos random bond spin y random site spin, para colaciones de paieses
+    \item redes complejas. Origen en teoria de grafos y propiedades de ellas realcionadas a la mecnica estadistica
+    \item polarizacióe de parlamentos con redes. Caso USA, chile( le- foulon)
+    \item detección de comunidades en redes
+    \item modularidad
+    \item spin-glass
+    \item unión
+\end{itemize}
+
+\subsection{Objetivos}
+
+Por una parte se busca desarrollar un modelo sociofísico que permita describir el comportamiento colectivo de los miembros de la Cámara de Diputados de Chile de forma colectiva, tomando como base los modelos sociofícos de dinámica de colaciones y/o alianzas entre paises.  
+Por otra se propone implementar un análisis de redes complejas con datos reales de la cámara de diputados. Mediante este se espera obtener una descripción análoga al concepto de ``polarización política'' pero desde una perspectiva matemática, incorporando algoritmos de detección de comunidades. 
+
+Luego, el objetivo principal de este proyecto es vincular los dos puntos anteriores. Para esto se espera interpretar las conexiones de las redes complejas elaboradas bajo la mirada del modelo ha desarollar, permitiendo así, obtener valores de energía, temperatura, o magnetización para el sistema, a partir de datos reales. El significado e interpretación de estas cantidades también es un punto a desarrollar.
+Finalmente, se pretende comparar o relacionar la polarización del modelo con la polarización
+
+
+\subsubsection*{Objetivos Específicos}
+\begin{itemize}
+\item    {\bf Modelo de spin-glass.} Relacionar los modelos sociofisicos exitentes, basados en hamiltonianos de spin-glass para la dinámica de coaliciones y alianzas entre paises, con la elaboración de un nuevo modelo que describa las interacciones entre miembros de un parlamento. Se busca estudiar a profundidad los modelos señalados y realizar las simulaciones computacionales de estos y del nuevo modelo.
+\item    {\bf Análisis de Redes Complejas.} Caracterizar la interacción entre miembros de la Cámara de Diputados de Chile, por medio de la representación del sistema como red compleja, a partir de los datos públicos de las votaciones en sala. Para ello se usarán algoritmos de detección de comunidades basados en principios de la mecánica estadistica, tienendo así un punto de encuentro con el modelo antes señalado.   
+
+\item {\bf Vinculación red-modelo y re-caracterizción.} Relacionar las conexiones de las redes elaboradas con las interacciones del modelo. Luego, obtener cantidades como la energía, temperatura o magnetización, propias de la física estadística, para este sistema de estudio, permitiendo así, re-caracterizarlo. Por otro lado, también dar una re-interpretación al concepto de ``polarización política''  basada en los algoritmos de detección de comunidades mencionados en el punto anterior. 
+
+\end{itemize}
+
+\subsection{Metodología}
+
+\subsection{Trabajo adelantado}
+
+\subsection{Sugerencia de plan de trabajo}
+\begin{itemize}
+\item \textbf{Semestre Otoño, 2022.} Este semestre será dedicado para el estudio de los modelos sociofíscos como para la elaboración del nuevo modelo, y las simulaciones computacionales correspondientes. También retomar el análisis de redes complejas, considerando el trabajo ya realizado.
+
+\item \textbf{Semestre Primavera, 2022.} En este semestre se estudiará el vinculo del modelo sociofísico con el análisis de redes. Se desarrollaran nuevos cálculos computacionales propios de la re-caracterización del sistema. En este periodo se contempla la redacción de tesis. En caso de ser necesario, esto último pude desarrollarse en parte del siguiente semestre (Otoño 2023). 
+\end{itemize}
+
+\subsection{Materiales y financiamiento}
+
+Para llevar a cabo este proyecto se necesitan utilizar las dependencias del Departamento de Física en la Facultad de Ciencias de la Universidad de Chile. % Principalmente, el trabajo se desarrollará en la oficina y los computadores del grupo de investigación PLANETS con acceso a internet.
+
+\subsubsection*{Recursos materiales}
+
+\begin{itemize}
+\item Puesto de trabajo y materiales en oficina
+%\item Acceso al Cluster en el departamento de Física de la universidad de Chile, para realizar cálculos numéricos y análisis de datos.
+
+\nocite{*}
+\end{itemize}
+\subsubsection*{Financiamiento}
+\begin{itemize}
+\item
+\end{itemize}
+
+%\bibliographystyle{abbrv}
+%\bibliography{citas.bib}
+
+\end{document}
+
+ 
+ 
+ 
+ 
+ 
+ 
