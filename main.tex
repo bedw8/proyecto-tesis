@@ -68,13 +68,16 @@
 
 %Existen diferentes tipos de grafos y estructuras de representación con los que trabajar, dependiendo de las características que se buscan explorar en cada investigación. En el análisis de los datos relevantes para este trabajo, lo que interesa es modelar series de tiempo como redes complejas. Para ello, se cuenta con las herramientas de la familia de algoritmos de visibilidad, que convierten series de tiempo en grafos donde la estructura de la serie se conserva en la topología del grafo \cite{lacasa2008time}, logrando construir un puente natural entre la teoría de redes complejas y el análisis de series de tiempo. %En este grafo cada nodo corresponde, en el mismo orden, a datos en serie, y se conectan dos nodos si existe visibilidad (oblicua) entre los datos correspondientes, es decir, si existe una línea recta que conecta los datos en serie, siempre que que esta ``línea de visibilidad" no cruce ninguna altura de datos intermedia.\\ %\cite{lacasa2012time}
 
-Las redes complejas son muy útiles para caracterizar sistemas con muchos elementos que interactuan entre si. Estas nos permiten modelar distintos sistemas mediante una representación de grafos, con nodos y conexiones, y luego obtener distintas propiedades del sistema a partir de métricas, características estadísticas/topológicas de
-de la red.
-Anteriormente se ha estudiado la mecánica estadística de las redes complejas ----------------- \\
+Las redes complejas son muy útiles para caracterizar sistemas con muchos elementos que interactuan entre si. Estas nos permiten modelar distintos sistemas mediante una representación de grafos, con nodos y conexiones, para luego obtener distintas propiedades del sistema a partir de métricas, características estadísticas/topológicas de la red.
 
-Este proyecto busca estudiar la Cámara de Diputados de Chile, en particular, las interacciones entre sus miembros; esto según la coordinación o descoordinación que tienen al momento de votar en sala. 
+Este proyecto busca estudiar las interacciones entre los miembros de la Cámara de Diputados de Chile haciendo uso de redes.
+ En particular, se pretende analizar la polarización y estabilidad de la Cámara.
 
-Actualmente existe una gran cantidad de trabajos con un enfoque similar (CITAS), en que se estudia la polarización en parlamentos de otros paises, usando analisis de redes. En la literatura también está presente un trabajo similar en que también se estudia la Cámara de Diputados chilena (LeFoulon), el cual proporciona datos interesantes -----------------------. \\
+ , pero desde una perspectiva física.
+
+
+Actualmente existe una gran cantidad de trabajos con un enfoque similar, en que se estudia la polarización en parlamentos de distitos paises usando analisis de redes. En general las interacciones entre parlamentarios se vincula con coordinacion (o descordinación) al momento de votar, o con el patrocinio en conjunto a los propuestas de ley. Sin embargo, la visión de ``polarización'' de tales trabajos se queda en el lenguaje de redes o de teoría de grafos. Por lo que nos preguntamos: ¿Existe una interpretación física de la polarización y 
+
 
 Por otro lado, en las últimas décadas, distintos autores han explorado la idea de estudiar fenómenos sociales con herammientas de física estadística, dando origen así a lo que hoy se denomina como \textbf{sociofísica}. En general, la pregunta de investigción es ``¿Como la interacción entre agentes sociales crea orden a partir de una condicion inicial desordenada?'', y a traves de esta estructura general se han establecido lineas de investigación espécificas. Por ejemplo: dinámica de opiniones, dinámica cultural, dinámica del lenguaje, comportamiento de multitudes, formación de jerarquías, entre otras áreas relacionadas a los fenómenos sociales. 
 
@@ -104,6 +107,18 @@ Finalmente, se espera poder interpretar las conexiones de las redes complejas el
 
 \subsection{Metodología}
 \subsubsection{Análisis de Redes Complejas.}
+
+Los votos de una votación en Sala $j$ se representará como un vector 
+\begin{equation}
+    v^j = \{u_1,\dots,u_n\}
+\end{equation}
+con $u_i$ la opción que el o la parlamentaria $i$ votó. Esta será 1 si el voto fue a favor, -1 si fue en contra y 0 en caso de abstención o ausencia.
+
+Realizando un producto externo entre estos vectores, se obtiene la matriz $M^j$ que representa la coordinación de los parlamentarios en la votación $j$. De esta forma $M^j_{kl}$ será 1 si los parlamentarios $k$ y $l$ votaron lo mismo, -1 si votaron opciones opuestas, y 0 si alguno se abstuvo o estuvo ausente. Entoces, ahora, para $n$ votaciones, tendremos
+\begin{equation}
+    A_{kl} = \sum_j M^j_{kl}
+\end{equation}
+
 %Se busca caracterizar la interacción entre miembros de la Cámara de Diputados de Chile, por medio de la representación del sistema como red compleja, a partir de los datos públicos de las votaciones en sala. 
 %Se propone usar el siguiente modelo para la construcción de la red.\\
 
@@ -112,7 +127,11 @@ Finalmente, se espera poder interpretar las conexiones de las redes complejas el
 %
 %Para ello se usarán algoritmos de detección de comunidades basados en principios de la mecánica estadistica, tienendo así un punto de encuentro con el modelo antes señalado.   
 
-%\subsubsection{Modelo de spin-glass.} Relacionar los modelos sociofisicos exitentes, basados en hamiltonianos de spin-glass para la dinámica de coaliciones y alianzas entre paises, con la elaboración de un nuevo modelo que describa las interacciones entre miembros de un parlamento. Se busca estudiar a profundidad los modelos señalados y realizar las simulaciones computacionales de estos y del nuevo modelo.
+\subsubsection{Modelo de spin-glass.} Serge Galam propone el siguiente hamiltoniano para el sistema de alianzas o fragmentación entre paises.
+\begin{equation}
+    H = \frac{1}{2} \sum_{i>j}^n \{G_{i,j} + \epsilon_i \epsilon_j\}\eta_i \eta_i - \sum_i^n \beta_i b_i \eta_i
+,\end{equation}
+con $\{\eta_i = \pm 1 \}$ las variables de Ising, que indican la elección del país $i$ de pertenecer a la alianza B $(\eta_i = 1)$ o a la alianza B $(\eta_i = -1)$. Por otro lado $\epsilon_i$ indica la alianza a la cual el pais $i$ \textit{deberia} pertenecer, principalmente por motivos historicos
 
 \subsubsection{Vinculación red-modelo y re-caracterizción.} Relacionar las conexiones de las redes elaboradas con las interacciones del modelo. Luego, obtener cantidades como la energía, temperatura o magnetización, propias de la física estadística, para este sistema de estudio, permitiendo así, re-caracterizarlo. Por otro lado, también dar una re-interpretación al concepto de ``polarización política''  basada en los algoritmos de detección de comunidades mencionados en el punto anterior. 
 \subsection{Trabajo adelantado}
