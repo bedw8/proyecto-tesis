@@ -4,10 +4,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Análisís sociofísico a la Cámara de Diputados Chilena}
+\title{Análisís de polarización en la Cámara de Diputados de Chile}
 \author{Benjamín Matías Ortiz Edwards}
 \pronom{el}
-\postgrado{Magíster en Ciencias con mención en Física.}
+\postgrado[Magíster]{en Ciencias con mención en Física.}
 %\directora{}
 %\director{}
 \directores{Dra. Denisse Pastén y Dr. Víctor Muñoz}
@@ -23,12 +23,11 @@
 \nacimiento{10 de febrero, 1997}
 \RUN{19.359.906-0}
 \telefono{(+56\;9)\:8656\;0757}
-\email{bedwedw@gmail.com}
+\email{bedw@bedw.me}
 
 \begin{document}
 
 \maketitlepage
-
 \makepersonalinfo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,10 +42,10 @@
 
 \subsection{Experiencia Profesional}
 \begin{cvlist}{}
-\item[\textbf{2020}]   Ayudante de Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
-\item[\textbf{2021}]   Ayudante de Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
-\item[\textbf{2019}]  Practicante "Practicas de Verano",  
-\item[\textbf{2021 - Presente}] Programador analísta, Centro de Inteligencia Territorial, Universidad Adolfo Ibañez. 
+\item[\textbf{2020}]   \textbf{Ayudante},  Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
+\item[\textbf{2021}]   \textbf{Ayudante},  Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
+\item[\textbf{2019}]  \textbf{Practicante}, "Practicas de Verano", DFC-DFI, Universidad de Chile.   
+\item[\textbf{2021 - Presente}] \textbf{Programador analísta}, Centro de Inteligencia Territorial, Universidad Adolfo Ibañez. 
 
 \end{cvlist}
 
@@ -68,40 +67,36 @@
 
 %Existen diferentes tipos de grafos y estructuras de representación con los que trabajar, dependiendo de las características que se buscan explorar en cada investigación. En el análisis de los datos relevantes para este trabajo, lo que interesa es modelar series de tiempo como redes complejas. Para ello, se cuenta con las herramientas de la familia de algoritmos de visibilidad, que convierten series de tiempo en grafos donde la estructura de la serie se conserva en la topología del grafo \cite{lacasa2008time}, logrando construir un puente natural entre la teoría de redes complejas y el análisis de series de tiempo. %En este grafo cada nodo corresponde, en el mismo orden, a datos en serie, y se conectan dos nodos si existe visibilidad (oblicua) entre los datos correspondientes, es decir, si existe una línea recta que conecta los datos en serie, siempre que que esta ``línea de visibilidad" no cruce ninguna altura de datos intermedia.\\ %\cite{lacasa2012time}
 
-Las redes complejas son muy útiles para caracterizar sistemas con muchos elementos que interactuan entre si. Estas nos permiten modelar distintos sistemas mediante una representación de grafos, con nodos y conexiones, para luego obtener distintas propiedades del sistema a partir de métricas, características estadísticas/topológicas de la red.
+Las redes complejas son muy útiles para caracterizar sistemas con muchos elementos que interactuan entre si. Estas nos permiten modelar distintos sistemas mediante una representación de grafos, con nodos y conexiones, para luego obtener distintas propiedades del sistema a partir de métricas, o propiedades estadísticas o topológicas de la red.\\
 
-Este proyecto busca estudiar las interacciones entre los miembros de la Cámara de Diputados de Chile haciendo uso de redes.
- En particular, se pretende analizar la polarización y estabilidad de la Cámara.
+Este proyecto busca estudiar la polarización de la Cámara de Diputados de Chile, a partir de las interacciones entre los miembros de esta, haciendo uso de redes. En particular, se pretende inferir propiedades de la Cámara a partir de la coordinación (o descoordinación) entre parlamentarios al momento de votar en Sala. \\
 
- , pero desde una perspectiva física.
-
-
-Actualmente existe una gran cantidad de trabajos con un enfoque similar, en que se estudia la polarización en parlamentos de distitos paises usando analisis de redes. En general las interacciones entre parlamentarios se vincula con coordinacion (o descordinación) al momento de votar, o con el patrocinio en conjunto a los propuestas de ley. Sin embargo, la visión de ``polarización'' de tales trabajos se queda en el lenguaje de redes o de teoría de grafos. Por lo que nos preguntamos: ¿Existe una interpretación física de la polarización y 
+Para estudiar la polarización de una red es necesario \textbf{detectar comunidades} en ella, a partir de las conexiones y sus pesos (intensidades). Luego, una red se considera polarizada cuando los nodos de una misma comunidad tienen interacciones más fuertes entre sí, mientras que más debiles (o nulas) con los nodos de distintas comunidades. Sin embargo, Neal propone un segundo tipo de polarización, lo que denomina ``polarización fuerte'', la cual consiste en que adem
 
 
-Por otro lado, en las últimas décadas, distintos autores han explorado la idea de estudiar fenómenos sociales con herammientas de física estadística, dando origen así a lo que hoy se denomina como \textbf{sociofísica}. En general, la pregunta de investigción es ``¿Como la interacción entre agentes sociales crea orden a partir de una condicion inicial desordenada?'', y a traves de esta estructura general se han establecido lineas de investigación espécificas. Por ejemplo: dinámica de opiniones, dinámica cultural, dinámica del lenguaje, comportamiento de multitudes, formación de jerarquías, entre otras áreas relacionadas a los fenómenos sociales. 
+Actualmente existe una gran cantidad de trabajos con un enfoque similar, en que se estudia la polarización de parlamentos de distitos paises usando analisis de redes, considerando las relaciones entre parlamentarios. En estos los \textbf{parlamentarios se representan como nodos, y las relaciones entre ellos como conexiones}. Algunos autores definen las interacciones (conexiones) a partir de la coordinacion (o descordinación) al momento de votar, mientras que otros a partir del patrocinio en conjunto a los propuestas de ley. 
 
-\begin{itemize}
-    \item modelos random bond spin y random site spin, para colaciones de paieses
-    \item detección de comunidades en redes
-    \item modularidad
-    \item spin-glass
-    \item unión
-\end{itemize}
+Para detectar comunidades hay diversos algoritmos, pero sin duda los mas utilizados son aquellos que maximizan la Modularidad ($Q$), definida por Newmany Garvin. Sin embargo esta, solo válida cuando las interacciónes 
+
+
+Uno de ellos es el algoritmo ``spin-glass'' de Reicherdat, el cual consiste el la minimización de un Hamiltoniano, demostrando ser equivalente a la maximización de la Modularidad.
+
+
+
 
 \subsection{Objetivos}
 
-Se busca desarrollar un modelo sociofísico que permita describir el comportamiento colectivo de los miembros de la Cámara de Diputados de Chile de forma colectiva, tomando como base los modelos sociofícos de dinámica de colaciones y/o alianzas entre paises. Por otra parte, se espera vincular este modelo, con un análisis de redes complejas ---\,con datos reales de la cámara de diputados. Así, se espera obtener una descripción análoga al concepto de ``polarización política'' pero desde una perspectiva matemática, y también incorporando algoritmos de detección de comunidades basados en hamiltonianos de spin-glass. \\
+En el contexto del estudio de interacciones entre los miembros de la Cámara de Diputados de Chile, se busca evaluar los algoritmos de detección de comunidades basados en la maximización de modularidad como una medida ``válidad'' de polarización política. Para ello se propone comparar los valores de modularidad y las particiones de comunidades obtenidas del algoritmo ``spin-glass'' de Reicherdat, con el índice del triángulo, al considerar interacciones negativas (repulsivas). 
 
-Finalmente, se espera poder interpretar las conexiones de las redes complejas elaboradas bajo la mirada del modelo ha desarollar, permitiendo así, obtener valores de energía, temperatura, o magnetización para el sistema, a partir de datos reales. El significado e interpretación de estas cantidades también es un punto a desarrollar.
+Posteriormente se buscará 
 
 \subsubsection*{Objetivos Específicos}
 \begin{itemize}
 \item    {\bf Análisis de Redes Complejas.} Caracterizar la interacción entre miembros de la Cámara de Diputados de Chile, por medio de la representación del sistema como red compleja, a partir de los datos públicos de las votaciones en sala, u otros similares.
 
-\item{\bf Modelo de spin-glass.} Relacionar los modelos sociofisicos exitentes, basados en hamiltonianos de spin-glass para la dinámica de coaliciones y alianzas entre paises, con la elaboración de un nuevo modelo que describa las interacciones entre miembros de un parlamento. Se busca estudiar a profundidad los modelos señalados y realizar las simulaciones computacionales de estos y del nuevo modelo.
+\item{\bf Comparar modularidad con índice del triángulo.} Relacionar los modelos sociofisicos exitentes, 
 
-\item {\bf Vinculación red-modelo y re-caracterizción.} Relacionar las conexiones de las redes elaboradas con las interacciones del modelo. Luego, obtener cantidades como la energía, temperatura o magnetización, propias de la física estadística, para este sistema de estudio, permitiendo así, re-caracterizarlo. Por otro lado, también dar una re-interpretación al concepto de ``polarización política''  basada en los algoritmos de detección de comunidades mencionados en el punto anterior. 
+\item {\bf Elaboración de nuevo hamiltoniano.} 
 
 \end{itemize}
 

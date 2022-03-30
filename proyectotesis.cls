@@ -53,7 +53,7 @@
 \newgeometry{textheight=8.5in, textwidth=6.2in,bottom=1in}
 \afterpage{\aftergroup\restoregeometry}
 \begin{center}
-    \vspace{5mm}\bf \huge  Formulario de Proyecto de Tesis para Magíster \\
+    \vspace{5mm}\bf \huge  Formulario de Proyecto de Tesis para \@postgrado \\
     \vspace{5mm}\large {\sc \@author}
 	\vspace{1.5cm}
 \end{center}
@@ -68,13 +68,13 @@
 \begin{minipage}{5cm}
 \centering
 \rule{5cm}{0.1mm} \\
- \bf  Director de Tesis
+ \bf  Director(a) de Tesis
 \end{minipage}
 \hfill
 \begin{minipage}{5cm}
 \centering
 \rule{5cm}{0.1mm} \\
- \bf  Director de Postgrado
+ \bf  Director(a) de Postgrado
 \end{minipage}
 \end{center}
 }
@@ -92,7 +92,7 @@
 \begin{info}
 \item {\bf\large Título del proyecto:} \@title
 \item {\bf\large Nombre~\@pronde~tesista:} \@author
-\item {\bf\large Proyecto de Tesis de:} \@postgrado 
+\item {\bf\large Proyecto de Tesis de:} \@programa 
 \@directora
 \@director
 \@directores
@@ -110,9 +110,8 @@
 \firmas
 }
 
-\def\@pronom{el/la/le}
 \newcommand\pronom[1]{%
-\renewcommand\@pronom{#1}%
+\def\@pronom{#1}%
 \pronde%
 }
 
@@ -127,8 +126,10 @@
 	\pronom{#1}
 }
 
-\def\@postgrado{Postgrado en}
-\newcommand\postgrado[1]{\renewcommand\@postgrado{#1}}
+\newcommand\postgrado[2][Postgrado]{
+\def\@postgrado{#1}
+\def\@programa{\@postgrado~#2}
+}
 
 
 \def\@duracion{Tal y tal semestre}
