@@ -69,24 +69,20 @@
 
 Las redes complejas son muy útiles para caracterizar sistemas con muchos elementos que interactuan entre si. Estas nos permiten modelar distintos sistemas mediante una representación de grafos, con nodos y conexiones, para luego obtener distintas propiedades del sistema a partir de métricas, o propiedades estadísticas o topológicas de la red.\\
 
-Este proyecto busca estudiar la polarización de la Cámara de Diputados de Chile, a partir de las interacciones entre los miembros de esta, haciendo uso de redes. En particular, se pretende inferir propiedades de la Cámara a partir de la coordinación (o descoordinación) entre parlamentarios al momento de votar en Sala. \\
+Este proyecto busca estudiar la polarización de la Cámara de Diputados de Chile, a partir de las interacciones entre los miembros de esta, haciendo uso de redes. 
+Como contexto, la mayoria trabajos que estudian parlamentos de distitos paises usando analisis de redes (legislative networks), tienen más o menos común la forma en que crean las redes legislativas. En estas los \textbf{parlamentarios se representan como nodos, y las relaciones entre ellos como conexiones}. Algunos autores definen las relaciones (conexiones) a partir de la coordinacion (o descordinación) al momento de votar, mientras que otros a partir del patrocinio en conjunto a los propuestas de ley.\\
 
-Para estudiar la polarización de una red es necesario \textbf{detectar comunidades} en ella, a partir de las conexiones y sus pesos (intensidades). Luego, una red se considera polarizada cuando los nodos de una misma comunidad tienen interacciones más fuertes entre sí, mientras que más debiles (o nulas) con los nodos de distintas comunidades. Sin embargo, Neal propone un segundo tipo de polarización, lo que denomina ``polarización fuerte'', la cual consiste en que adem
+Por otro lado, para estudiar la polarización de una red es necesario \textbf{detectar comunidades} en ella, a partir de las conexiones y sus pesos (intensidades). Luego, una red se considera polarizada cuando los nodos de una misma comunidad tienen interacciones más fuertes entre sí, mientras que más debiles (o nulas) con los nodos de distintas comunidades. Esta concepción de polarización es llamada ``polarización debil'' por Neal. Sin embargo, en su trabajo tambien propone un segundo tipo de polarización, lo que denomina ``polarización fuerte''. Esta consiste en que, además de haber muchas conexiones (e intensas) entre los nodos de una misma comunidad, entre nodos de comunidades diferentes existan conexiones pero de peso negativo.\\
 
+rnte esto nos preguntamos: ¿Es posible medir la polarización politica de la Camara de de Diputados de Chile, usando redes complejas?. Y de ser posible, ¿Esta polarización de tipo debil o fuerte?.\\
 
-Actualmente existe una gran cantidad de trabajos con un enfoque similar, en que se estudia la polarización de parlamentos de distitos paises usando analisis de redes, considerando las relaciones entre parlamentarios. En estos los \textbf{parlamentarios se representan como nodos, y las relaciones entre ellos como conexiones}. Algunos autores definen las interacciones (conexiones) a partir de la coordinacion (o descordinación) al momento de votar, mientras que otros a partir del patrocinio en conjunto a los propuestas de ley. 
+Para detectar comunidades hay diversos algoritmos, pero sin duda los mas utilizados son aquellos que maximizan la Modularidad ($Q$), definida por Newman y Garvin. Por otro lado, hay un algoritmo que tiene sus bases en mecánica estadistica. Este consiste en la definición de un hamiltoniano que debe minimizarse para obtener la partición de comunidades óptima. Además, los autores demuestran que la minimización de la energía (del hamiltoniano) es equivalente a la maximización de la Modularidad.
 
-Para detectar comunidades hay diversos algoritmos, pero sin duda los mas utilizados son aquellos que maximizan la Modularidad ($Q$), definida por Newmany Garvin. Sin embargo esta, solo válida cuando las interacciónes 
-
-
-Uno de ellos es el algoritmo ``spin-glass'' de Reicherdat, el cual consiste el la minimización de un Hamiltoniano, demostrando ser equivalente a la maximización de la Modularidad.
-
-
-
+Con las comunidades ya definidas, ¿Como medimos la polarización?. Varios autores usan la misma medida de Modularidad como un indicador de esto, considerando que mientras más alta sea la Modularidad, la red está más polarizada. Sin embargo, esto solo servirá para medir polarización debil, ya que la Modularidad como tal no está definida para conexiones con pesos negativos. Ante esto, Neal propone usar el Índice del triángulo para cuantificar la polarización fuerte. Ante esto nos preguntamos: ¿Habrá un método basado en mecánica estadística, de forma similar al planteado por Reicherdat, que sea equivalente a la maximización del índice del triángulo?. Por otro lado, también, ¿Es el índice del triángulo la mejor forma más optima de cuantificar la polarización fuerte?
 
 \subsection{Objetivos}
 
-En el contexto del estudio de interacciones entre los miembros de la Cámara de Diputados de Chile, se busca evaluar los algoritmos de detección de comunidades basados en la maximización de modularidad como una medida ``válidad'' de polarización política. Para ello se propone comparar los valores de modularidad y las particiones de comunidades obtenidas del algoritmo ``spin-glass'' de Reicherdat, con el índice del triángulo, al considerar interacciones negativas (repulsivas). 
+En el contexto del estudio de interacciones entre los miembros de la Cámara de Diputados de Chile, se busca evaluar las medidas de Modularidad y el índice del triángulo como indicadores ``óptimos'' de polarización política. Para ello se propone comparar los valores de modularidad y las particiones de comunidades obtenidas del algoritmo ``spin-glass'' de Reicherdat, con el índice del triángulo, al considerar interacciones negativas (repulsivas). 
 
 Posteriormente se buscará 
 
