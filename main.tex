@@ -70,15 +70,26 @@
 Las redes complejas son muy útiles para caracterizar sistemas con muchos elementos que interactuan entre si. Estas nos permiten modelar distintos sistemas mediante una representación de grafos, con nodos y conexiones, para luego obtener distintas propiedades del sistema a partir de métricas, o propiedades estadísticas o topológicas de la red.\\
 
 Este proyecto busca estudiar la polarización de la Cámara de Diputados de Chile, a partir de las interacciones entre los miembros de esta, haciendo uso de redes. 
-Como contexto, la mayoria trabajos que estudian parlamentos de distitos paises usando analisis de redes (legislative networks), tienen más o menos común la forma en que crean las redes legislativas. En estas los \textbf{parlamentarios se representan como nodos, y las relaciones entre ellos como conexiones}. Algunos autores definen las relaciones (conexiones) a partir de la coordinacion (o descordinación) al momento de votar, mientras que otros a partir del patrocinio en conjunto a los propuestas de ley.\\
+Como contexto, la mayoria trabajos que estudian parlamentos de distitos paises usando analisis de redes (legislative networks), tienen más o menos común la forma en que crean las redes legislativas. En estas los \textbf{parlamentarios se representan como nodos, y las relaciones entre ellos como conexiones}. El criterio a partir del cual se definen las conexiones entre los nodos varía de trabajo en trabajo, pero los más usados consisten en definir las relaciones (conexiones) a partir de la coordinacion (o descordinación) de los parlamentarios al momento de votar, o a partir del patrocinio en conjunto a las propuestas de ley.\\
 
 Por otro lado, para estudiar la polarización de una red es necesario \textbf{detectar comunidades} en ella, a partir de las conexiones y sus pesos (intensidades). Luego, una red se considera polarizada cuando los nodos de una misma comunidad tienen interacciones más fuertes entre sí, mientras que más debiles (o nulas) con los nodos de distintas comunidades. Esta concepción de polarización es llamada ``polarización debil'' por Neal. Sin embargo, en su trabajo tambien propone un segundo tipo de polarización, lo que denomina ``polarización fuerte''. Esta consiste en que, además de haber muchas conexiones (e intensas) entre los nodos de una misma comunidad, entre nodos de comunidades diferentes existan conexiones pero de peso negativo.\\
 
-rnte esto nos preguntamos: ¿Es posible medir la polarización politica de la Camara de de Diputados de Chile, usando redes complejas?. Y de ser posible, ¿Esta polarización de tipo debil o fuerte?.\\
+Ante esto nos preguntamos: ¿Es posible medir la polarización politica de la Camara de de Diputados de Chile, usando redes complejas?. Y de ser posible, ¿Esta polarización de tipo debil o fuerte?.\\
 
-Para detectar comunidades hay diversos algoritmos, pero sin duda los mas utilizados son aquellos que maximizan la Modularidad ($Q$), definida por Newman y Garvin. Por otro lado, hay un algoritmo que tiene sus bases en mecánica estadistica. Este consiste en la definición de un hamiltoniano que debe minimizarse para obtener la partición de comunidades óptima. Además, los autores demuestran que la minimización de la energía (del hamiltoniano) es equivalente a la maximización de la Modularidad.
+Para detectar comunidades hay diversos algoritmos, pero sin duda los mas utilizados son aquellos que maximizan la Modularidad ($Q$). Esta fue definida por Newman y equivale a 
+\begin{equation}
+    Q = \frac{1}{2m}\sum_{ij} \left( A_{ij} - \frac{k_i k_j}{2m}  \right) \delta(\sigma_i,\sigma_j) \label{mod}
+,\end{equation}
+con $k_i$ la suma de los pesos de las conexiones del nodo $i$, $m = \frac{1}{2} \sum_i k_i$. También tenemos $\sigma_i$ que indíca a que comunidad pertenece el nodo $i$, y $\delta(\sigma_i,\sigma_j)$ se define de tal forma que es 1 si los nodos $i$ y $j$ pertenecen a la misma comunidad, o 0 en caso contrario.
 
-Con las comunidades ya definidas, ¿Como medimos la polarización?. Varios autores usan la misma medida de Modularidad como un indicador de esto, considerando que mientras más alta sea la Modularidad, la red está más polarizada. Sin embargo, esto solo servirá para medir polarización debil, ya que la Modularidad como tal no está definida para conexiones con pesos negativos. Ante esto, Neal propone usar el Índice del triángulo para cuantificar la polarización fuerte. Ante esto nos preguntamos: ¿Habrá un método basado en mecánica estadística, de forma similar al planteado por Reicherdat, que sea equivalente a la maximización del índice del triángulo?. Por otro lado, también, ¿Es el índice del triángulo la mejor forma más optima de cuantificar la polarización fuerte?
+Como se mencionó anteriormente, muchos algoritmos utilizan esta medida para detectar comunidades. En terminos sencillos, estos prueban distintas comunidades y evaluan la modularidad. Luego, la partición de comunidades (el conjunto $\sigma = \{\sigma_i\}$) que maximiza la modularidad es el output del algoritmo.
+
+
+Por otro lado, hay un algoritmo que tiene sus bases en mecánica estadistica. Este consiste en la definición de un hamiltoniano que debe minimizarse para obtener la partición de comunidades óptima. Además, los autores demuestran que la minimización de la energía (del hamiltoniano) es equivalente a la maximización de la Modularidad.\\
+
+Ahora, con las comunidades ya identificadas, ¿Como medimos la polarización?. Varios autores usan la misma medida de Modularidad como un indicador de polarización, considerando que mientras más alta sea la Modularidad, la red está más polarizada. Sin embargo, esto solo servirá para medir polarización debil, ya que la Modularidad como tal no está definida para conexiones con pesos negativos. Ante esto, Neal propone usar el Índice del triángulo para cuantificar la polarización fuerte. 
+
+Ante esto nos preguntamos: ¿Habrá un método basado en mecánica estadística, de forma similar al planteado por Reichardt, que sea equivalente a la maximización del índice del triángulo?. Por último, también, ¿Es el índice del triángulo la forma más optima de cuantificar la polarización fuerte?
 
 \subsection{Objetivos}
 
@@ -89,9 +100,9 @@ También se busca desarrollar una medida de polarización basáda en mecánica e
 \begin{itemize}
 \item    {\bf Análisis de Redes Complejas.} Caracterizar la interacción entre miembros de la Cámara de Diputados de Chile, por medio de la representación del sistema como red compleja, a partir de los datos públicos de las votaciones en sala, u otros similares.
 
-\item{\bf Comparación entre la modularidad y el índice del triángulo.} Con la red construida se propone utilizar metodos de tección de comunidades, para luego medir la modularidad, y comparar esta cantidad con el índice del triángulo luego de considerar conexiones negativas. 
+\item{\bf Comparación entre la modularidad y el índice del triángulo.} Con la red construida se propone utilizar métodos de tección de comunidades, para luego medir la modularidad, y comparar esta cantidad con el índice del triángulo. El proposito de esto es identificar nociones de polarización debil o fuerte con las herramientas que en este momento tenemos a disposición.
 
-\item {\bf Elaboración de nueva medida de polarización.} De forma similar a lo relizado po Reichardt, se busca crear un hamiltoniano que incorpore conexiones negativas, pero que se relacione con la maximización del índice del triangulo o con la maximización otra medida que de cuenta de la polarización fuerte.
+\item {\bf Desarrollo de nuevo algoritmo de detcción de comunidades, basada en Mecánica Estadística.} De forma similar a lo relizado po Reichardt, se busca crear un hamiltoniano que incorpore conexiones negativas, pero que se relacione con la maximización del índice del triangulo o con la maximización otra medida que de cuenta de la polarización fuerte.
 
 \end{itemize}
 
@@ -105,26 +116,23 @@ Los votos de una votación en Sala $k$ los representaremos mediante el vector
 \end{equation}
 con $u_i$ la opción que el o la parlamentaria $i$ votó. Esta será 1 si el voto fue a favor, -1 si fue en contra y 0 en caso de abstención o ausencia.
 
-Realizando el producto externo de $v^k$ consigo mismo, se obtiene la matriz $M^k$ que representa la coordinación de los parlamentarios en la votación $k$. De esta forma la coordenada $M^k_{ij}$ será 1 si los parlamentarios $i$ y $j$ votaron lo mismo, -1 si votaron opciones opuestas, y 0 si alguno se abstuvo o estuvo ausente. Entoces, ahora, para $m$ votaciones, tendremos la siguiente matriz de adjacencia pesada.
+Realizando el producto externo de $v^k$ consigo mismo, se obtiene la matriz $M^k$ que representa la coordinación de los parlamentarios en la votación $k$. De esta forma la coordenada $M^k_{ij}$ será 1 si los parlamentarios $i$ y $j$ votaron lo mismo, -1 si votaron opciones opuestas, y 0 si alguno se abstuvo o estuvo ausente. Entoces, ahora, para $m$ votaciones, tendremos la siguiente matriz.
 \begin{equation}
     A_{ij} = \sum_k^m M^k_{ij} \label{adj}
 \end{equation}
+Con esta matriz ya podemos crear la red. Si una coordenada $A_{ij}\neq 0$ entonces creamos una conexión entre los nodos $i$ y $j$ , y con una peso igual a $A_{ij}$. Para los casos $A_{ij} = 0$, simplemente no se crea ninguna conexión entre los nodos $i$ y $j$.\\
 
-%Se propone usar el siguiente modelo para la construcción de la red.\\
+Queda pendiente definir cuantas y cuales votaciones se considerarán para armar la red. Se plantea también la idea de armar varias redes a partir de votaciones ocurridas en periodos o intervalos temporales distintos. Al agregar la dimensión temporal podemos relacionar los posteriores analisis relacionados a la polarización, con la temporalidad de las votaciones y su cercacanía con hitos políticos relevantes.
 
-%Se considerará cada diputado/a un nodo, y estos se conectarán entre sí, si coinciden al votar en las distintas votaciones en Sala. Por ejemplo si el parlamentario $a$, en una votación en particular, vota lo mismo (A favor, En contra, Abstención) que el parlamentario $b$, entonces hay una conexión entre $a$ y $b$ 
-%
-%
-%Para ello se usarán algoritmos de detección de comunidades basados en principios de la mecánica estadistica, tienendo así un punto de encuentro con el modelo antes señalado.   
+\subsubsection{Comparación entre la modularidad y el índice del triángulo} 
+Luego de crear la red a partir de la matriz de adjacencia de la ecuación \eqref{adj}, se busca medir la modularidad y el índice del triángulo para compararlos. Para ello se propone momentaneamente ``ignorar'' las conexiones negativas, remplazando todas las entradas de $A_{kl} < 0$.\\ 
 
-\subsubsection{Comparación entre la modularidad y el índice del triángulo} Luego de crear la red a partir de la matriz de adjacencia de la ecuación \eqref{adj}, se busca medir la modularidad y el índice del triángulo. Para ello se propone momentaneamente ``ignorar'' las conexiones negativas, remplazando todas las entradas de $A_{kl} < 0$. Con esta red de solo conexiones de peso positivo, se busca detectar comunidades con el método ``spin-glass'', y con la partición de comunidades resultante, medir la modularidad. Esta se define por 
-\begin{equation}
-    Q = \frac{1}{2m}\sum_{ij} \left( A_{ij} - \frac{k_i k_j}{2m}  \right) \delta(s_i,s_j),
-\end{equation}
+Ahora, con esta red de solo conexiones de peso positivo, detectamos comunidades con el método ``spin-glass'', y con la partición de comunidades resultante, calculamos la modularidad. 
 
 Luego, ahora si considerando las conexiones de peso negativo, se pretende medir el índice del triángulo con la particion de comunidades obtenida anteriormente.
 
-\subsubsection{Desarrollo de nuevo algoritmo de detcción de comunidades, basada en Mecánica Estadística} Reichardt y Bornholdt desarrollaron un Hamiltoniano que al minimizarlo nos permite obtener la partición de comunidades óptima de una red, a partir de las conexiones entre los nodos. También demostraron que minimizar su Hamiltoniano es equivalente a maximizar la modularidad bajo ciertas condiciones. 
+\subsubsection{Desarrollo de nuevo algoritmo de detcción de comunidades, basada en Mecánica Estadística} 
+Reichardt y Bornholdt desarrollaron un Hamiltoniano que al minimizarlo nos permite obtener la partición de comunidades óptima de una red, a partir de las conexiones entre los nodos. También demostraron que minimizar su Hamiltoniano es equivalente a maximizar la modularidad bajo ciertas condiciones. 
 Al momento de desarrollar el Hamiltoniano, los autores lo abordaron de la siguiente manera
 \begin{align}
 \begin{split}
@@ -133,7 +141,7 @@ Al momento de desarrollar el Hamiltoniano, los autores lo abordaron de la siguie
 \end{split}
 \label{Ham}
 \end{align}
-En \eqref{Ham}, $\sigma$ representa la partición de comunidades, donde, en concreto $\sigma_i$ indica a que comunidad pertenece el nodo $i$. Luego $\delta(\sigma_i,\sigma_j)$ se define de tal forma que es 1 si los nodos $i$ y $j$ pertenecen a la misma comunidad, o 0 en caso contrario. Notemos que en \eqref{Ham} se hace referencia a las (des)conexiones internas y externas. Con ``internas'' nos referimos a la relaciones entre nodo que pertenencen a la misma comunidad, mientra que con ``externas'' a las relaciones entre nodos de distintas comunidades.
+En \eqref{Ham}, $\sigma$ representa la partición de comunidades, donde, en concreto $\sigma_i$ indica a que comunidad pertenece el nodo $i$. Luego $\delta(\sigma_i,\sigma_j)$ se define de tal forma que es 1 si los nodos $i$ y $j$ pertenecen a la misma comunidad, o 0 en caso contrario. Notemos también que en \eqref{Ham} se hace referencia a las (des)conexiones internas y externas. Con ``internas'' nos referimos a la relaciones entre nodo que pertenencen a la misma comunidad, mientra que con ``externas'' a las relaciones entre nodos de distintas comunidades.
 
 Con esto en cuenta, podemos apreciar como este tipo de Hamiltoniano busca ``premiar'' a las conexiones internas y a las desconexiones externas, al mismo tiempo que ``penaliza'' las conexiones enxternas o la ausencia de conexiones entre nodos de una misma comunidad.
 \\
