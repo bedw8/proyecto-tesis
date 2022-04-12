@@ -82,35 +82,34 @@ Con las comunidades ya definidas, ¿Como medimos la polarización?. Varios autor
 
 \subsection{Objetivos}
 
-En el contexto del estudio de interacciones entre los miembros de la Cámara de Diputados de Chile, se busca evaluar las medidas de Modularidad y el índice del triángulo como indicadores ``óptimos'' de polarización política. Para ello se propone comparar los valores de modularidad y las particiones de comunidades obtenidas del algoritmo ``spin-glass'' de Reicherdat, con el índice del triángulo, al considerar interacciones negativas (repulsivas). 
-
-Posteriormente se buscará 
+En el contexto del estudio de interacciones entre los miembros de la Cámara de Diputados de Chile, se busca evaluar los algoritmos de detección de comunidades basados en la maximización de modularidad como una medida ``óptima'' de polarización política. Para ello se propone comparar los valores de modularidad y , con el índice del triángulo, al considerar interacciones negativas (repulsivas). 
+También se busca desarrollar una medida de polarización basáda en mecánica estadistica, basandonos en trabajos similares.
 
 \subsubsection*{Objetivos Específicos}
 \begin{itemize}
 \item    {\bf Análisis de Redes Complejas.} Caracterizar la interacción entre miembros de la Cámara de Diputados de Chile, por medio de la representación del sistema como red compleja, a partir de los datos públicos de las votaciones en sala, u otros similares.
 
-\item{\bf Comparar modularidad con índice del triángulo.} Relacionar los modelos sociofisicos exitentes, 
+\item{\bf Comparación entre la modularidad y el índice del triángulo.} Con la red construida se propone utilizar metodos de tección de comunidades, para luego medir la modularidad, y comparar esta cantidad con el índice del triángulo luego de considerar conexiones negativas. 
 
-\item {\bf Elaboración de nuevo hamiltoniano.} 
+\item {\bf Elaboración de nueva medida de polarización.} De forma similar a lo relizado po Reichardt, se busca crear un hamiltoniano que incorpore conexiones negativas, pero que se relacione con la maximización del índice del triangulo o con la maximización otra medida que de cuenta de la polarización fuerte.
 
 \end{itemize}
 
 \subsection{Metodología}
 \subsubsection{Análisis de Redes Complejas.}
+Se busca caracterizar la interacción entre miembros de la Cámara de Diputados de Chile, por medio de la representación del sistema como red compleja, a partir de los datos públicos de las votaciones en sala. En terminos simple, consideraremos los parlamentarios los nodos de la red, y entos tendrán conexiones según la coordinacón (o descoordinación) al momento de votar en Sala.
 
-Los votos de una votación en Sala $j$ se representará como un vector 
+Los votos de una votación en Sala $k$ los representaremos mediante el vector 
 \begin{equation}
-    v^j = \{u_1,\dots,u_n\}
+    v^k = \{u_1,\dots,u_n\}
 \end{equation}
 con $u_i$ la opción que el o la parlamentaria $i$ votó. Esta será 1 si el voto fue a favor, -1 si fue en contra y 0 en caso de abstención o ausencia.
 
-Realizando un producto externo entre estos vectores, se obtiene la matriz $M^j$ que representa la coordinación de los parlamentarios en la votación $j$. De esta forma $M^j_{kl}$ será 1 si los parlamentarios $k$ y $l$ votaron lo mismo, -1 si votaron opciones opuestas, y 0 si alguno se abstuvo o estuvo ausente. Entoces, ahora, para $n$ votaciones, tendremos
+Realizando el producto externo de $v^k$ consigo mismo, se obtiene la matriz $M^k$ que representa la coordinación de los parlamentarios en la votación $k$. De esta forma la coordenada $M^k_{ij}$ será 1 si los parlamentarios $i$ y $j$ votaron lo mismo, -1 si votaron opciones opuestas, y 0 si alguno se abstuvo o estuvo ausente. Entoces, ahora, para $m$ votaciones, tendremos la siguiente matriz de adjacencia pesada.
 \begin{equation}
-    A_{kl} = \sum_j M^j_{kl}
+    A_{ij} = \sum_k^m M^k_{ij} \label{adj}
 \end{equation}
 
-%Se busca caracterizar la interacción entre miembros de la Cámara de Diputados de Chile, por medio de la representación del sistema como red compleja, a partir de los datos públicos de las votaciones en sala. 
 %Se propone usar el siguiente modelo para la construcción de la red.\\
 
 %Se considerará cada diputado/a un nodo, y estos se conectarán entre sí, si coinciden al votar en las distintas votaciones en Sala. Por ejemplo si el parlamentario $a$, en una votación en particular, vota lo mismo (A favor, En contra, Abstención) que el parlamentario $b$, entonces hay una conexión entre $a$ y $b$ 
@@ -118,18 +117,33 @@ Realizando un producto externo entre estos vectores, se obtiene la matriz $M^j$ 
 %
 %Para ello se usarán algoritmos de detección de comunidades basados en principios de la mecánica estadistica, tienendo así un punto de encuentro con el modelo antes señalado.   
 
-\subsubsection{Modelo de spin-glass.} Serge Galam propone el siguiente hamiltoniano para el sistema de alianzas o fragmentación entre paises.
+\subsubsection{Comparación entre la modularidad y el índice del triángulo} Luego de crear la red a partir de la matriz de adjacencia de la ecuación \eqref{adj}, se busca medir la modularidad y el índice del triángulo. Para ello se propone momentaneamente ``ignorar'' las conexiones negativas, remplazando todas las entradas de $A_{kl} < 0$. Con esta red de solo conexiones de peso positivo, se busca detectar comunidades con el método ``spin-glass'', y con la partición de comunidades resultante, medir la modularidad. Esta se define por 
 \begin{equation}
-    H = \frac{1}{2} \sum_{i>j}^n \{G_{i,j} + \epsilon_i \epsilon_j\}\eta_i \eta_i - \sum_i^n \beta_i b_i \eta_i
-,\end{equation}
-con $\{\eta_i = \pm 1 \}$ las variables de Ising, que indican la elección del país $i$ de pertenecer a la alianza B $(\eta_i = 1)$ o a la alianza B $(\eta_i = -1)$. Por otro lado $\epsilon_i$ indica la alianza a la cual el pais $i$ \textit{deberia} pertenecer, principalmente por motivos historicos
+    Q = \frac{1}{2m}\sum_{ij} \left( A_{ij} - \frac{k_i k_j}{2m}  \right) \delta(s_i,s_j),
+\end{equation}
 
-\subsubsection{Vinculación red-modelo y re-caracterizción.} Relacionar las conexiones de las redes elaboradas con las interacciones del modelo. Luego, obtener cantidades como la energía, temperatura o magnetización, propias de la física estadística, para este sistema de estudio, permitiendo así, re-caracterizarlo. Por otro lado, también dar una re-interpretación al concepto de ``polarización política''  basada en los algoritmos de detección de comunidades mencionados en el punto anterior. 
+Luego, ahora si considerando las conexiones de peso negativo, se pretende medir el índice del triángulo con la particion de comunidades obtenida anteriormente.
+
+\subsubsection{Desarrollo de nuevo algoritmo de detcción de comunidades, basada en Mecánica Estadística} Reichardt y Bornholdt desarrollaron un Hamiltoniano que al minimizarlo nos permite obtener la partición de comunidades óptima de una red, a partir de las conexiones entre los nodos. También demostraron que minimizar su Hamiltoniano es equivalente a maximizar la modularidad bajo ciertas condiciones. 
+Al momento de desarrollar el Hamiltoniano, los autores lo abordaron de la siguiente manera
+\begin{align}
+\begin{split}
+    \mathcal{H}(\{\sigma\}) = &- \sum_{i\neq j} a_{ij}\underbrace{A_{ij}\delta(\sigma_i,\sigma_j)}_{\text{conexiones internas}} + \sum_{i\neq j} b_{ij}\underbrace{(1 - A_{ij})\delta(\sigma_i,\sigma_j)}_{\text{desconexiones internas}} \\
+                              &+ \sum_{i\neq j} c_{ij} \underbrace{A_{ij}i[1 - \delta(\sigma_i,\sigma_j)] }_{\text{conexiones externas}} - \sum_{i\neq j} d_{ij} \underbrace{(1-A_{ij})[1 - \delta(\sigma_i,\sigma_j)]}_{\text{desconexiones externas}}
+\end{split}
+\label{Ham}
+\end{align}
+En \eqref{Ham}, $\sigma$ representa la partición de comunidades, donde, en concreto $\sigma_i$ indica a que comunidad pertenece el nodo $i$. Luego $\delta(\sigma_i,\sigma_j)$ se define de tal forma que es 1 si los nodos $i$ y $j$ pertenecen a la misma comunidad, o 0 en caso contrario. Notemos que en \eqref{Ham} se hace referencia a las (des)conexiones internas y externas. Con ``internas'' nos referimos a la relaciones entre nodo que pertenencen a la misma comunidad, mientra que con ``externas'' a las relaciones entre nodos de distintas comunidades.
+
+Con esto en cuenta, podemos apreciar como este tipo de Hamiltoniano busca ``premiar'' a las conexiones internas y a las desconexiones externas, al mismo tiempo que ``penaliza'' las conexiones enxternas o la ausencia de conexiones entre nodos de una misma comunidad.
+\\
+
+Siguiendo una lógica similar a lo recién planteado, se busca desarrollar un Hamiltoniano que nos permita detectar comunidades, y cuya minimización sea equivalente a la maximización de del índice del triángulo u otra medida que nos de cuenta de la polarización fuerte (considernado conexiones negativas).
 \subsection{Trabajo adelantado}
 
 \subsection{Sugerencia de plan de trabajo}
 \begin{itemize}
-\item \textbf{Semestre Otoño, 2022.} Este semestre será dedicado para el estudio de los modelos sociofíscos como para la elaboración del nuevo modelo, y las simulaciones computacionales correspondientes. También retomar el análisis de redes complejas, considerando el trabajo ya realizado.
+\item \textbf{Semestre Otoño, 2022.} Este semestre será dedicado para retomar el análisis de redes complejas, a partir del trabajo ya realizado.  
 
 \item \textbf{Semestre Primavera, 2022.} En este semestre se estudiará el vinculo del modelo sociofísico con el análisis de redes. Se desarrollaran nuevos cálculos computacionales propios de la re-caracterización del sistema. En este periodo se contempla la redacción de tesis. En caso de ser necesario, esto último pude desarrollarse en parte del siguiente semestre (Otoño 2023). 
 \end{itemize}
