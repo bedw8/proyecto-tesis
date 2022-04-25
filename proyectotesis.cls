@@ -104,7 +104,7 @@
 
 \item {\bf\large Compromiso de Director de Tesis y Director de Tesis Alternativo} 
 
-``El Director de Tesis acepta la responsabilidad de supervisar científicamente el presente proyecto y de proveer información pertinente al avance de éste a petición del Comité de Postgrado. En caso de que el Director de Tesis se ausente del país, o por alguna otra razón de orden mayor, el Director de Tesis alternativo acepta las  mencionadas anteriormente''.
+``El Director de Tesis acepta la responsabilidad de supervisar científicamente el presente proyecto y de proveer información pertinente al avance de éste a petición del Comité de Postgrado. En caso de que el Director de Tesis se ausente del país, o por alguna otra razón de orden mayor, el Director de Tesis alternativo acepta las mencionadas anteriormente''.
 \end{info}
 %\vspace{-3mm}
 \firmas
