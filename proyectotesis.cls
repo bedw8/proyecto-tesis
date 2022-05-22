@@ -23,6 +23,7 @@
 \RequirePackage{afterpage}
 \RequirePackage{palatino}
 \RequirePackage[LabelsAligned,NoDate]{currvita}
+\RequirePackage{microtype}
 
 
 \setlength{\headheight}{14.2pt}
