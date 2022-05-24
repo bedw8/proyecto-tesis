@@ -5,7 +5,7 @@
 \ProcessOptions\relax
 \LoadClass[11pt]{article}
 
-\RequirePackage[letterpaper, textheight=9.2in, textwidth=6.2in,bottom=1in]{geometry}
+\RequirePackage[letterpaper, textheight=9.2in, hmargin=2cm,bottom=1in]{geometry}
 \RequirePackage{emptypage}
 \RequirePackage[spanish]{babel}
 \RequirePackage[utf8]{inputenc}
@@ -24,7 +24,12 @@
 \RequirePackage{palatino}
 \RequirePackage[LabelsAligned,NoDate]{currvita}
 \RequirePackage{microtype}
+\RequirePackage[backend=biber,natbib=true,sorting=none,style=numeric-comp, maxcitenames=2, url=false, isbn=false]{biblatex}
+\usepackage[autostyle]{csquotes}
 
+% Correciones bibliografía
+\DefineBibliographyStrings{spanish}{andothers={et al.}}
+\AtEveryBibitem{\clearfield{note}}
 
 \setlength{\headheight}{14.2pt}
 \addtolength{\topmargin}{-2.2pt} \fancyfoot[L]{} % Empty left footer
