@@ -7,6 +7,8 @@
 
 \RequirePackage[letterpaper, textheight=9.2in, hmargin=2cm,bottom=1in]{geometry}
 \RequirePackage{emptypage}
+\RequirePackage{kvoptions}
+\RequirePackage{etoolbox}
 \RequirePackage[spanish]{babel}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{amsmath}
@@ -16,25 +18,35 @@
 \RequirePackage{graphicx}
 \RequirePackage{braket}
 \RequirePackage{xcolor}
-%\RequirePackage{enumerate}
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage{fancyhdr}
-%\RequirePackage{titlesec}
 \RequirePackage{afterpage}
 \RequirePackage{palatino}
 \RequirePackage[LabelsAligned,NoDate]{currvita}
 \RequirePackage{microtype}
 \RequirePackage[backend=biber,natbib=true,sorting=none,style=numeric-comp, maxcitenames=2, url=false, isbn=false]{biblatex}
-\usepackage[autostyle]{csquotes}
+\RequirePackage[autostyle]{csquotes}
+
+\urlstyle{rm}
+\DeclareBoolOption{hyperref}
+
+\ProcessKeyvalOptions*
+\ifproyectotesis@hyperref
+    \RequirePackage{hyperref}
+	% Corrección Hyperref + eqref
+	\renewcommand*{\eqref}[1]{%
+	  \hyperref[{#1}]{\textup{\tagform@{\ref*{#1}}}}%
+	}
+\fi
 
 % Correciones bibliografía
 \DefineBibliographyStrings{spanish}{andothers={et al.}}
 \AtEveryBibitem{\clearfield{note}}
 
-\setlength{\headheight}{14.2pt}
-\addtolength{\topmargin}{-2.2pt} \fancyfoot[L]{} % Empty left footer
-
+% Formato primera pagina
 \fancypagestyle{firstpage}{
+%\setlength{\topmargin}{0cm}
+%\setlength{\textheight}{\textheight-a\topmargindefault}
 \fancyfoot[C]{} % Empty center footer
 \fancyfoot[R]{\thepage}
 \fancyhead[L]{Facultad de Ciencias}
@@ -56,7 +68,7 @@
 
 \def\maketitle{
 \thispagestyle{firstpage}
-\newgeometry{textheight=8.5in, textwidth=6.2in,bottom=1in}
+\newgeometry{letterpaper, textheight=8.5in, hmargin=2cm,bottom=1in}
 \afterpage{\aftergroup\restoregeometry}
 \begin{center}
     \vspace{5mm}\bf \huge  Formulario de Proyecto de Tesis para \@postgrado \\
@@ -99,10 +111,7 @@
 \item {\bf\large Título del proyecto:} \@title
 \item {\bf\large Nombre~\@pronde~tesista:} \@author
 \item {\bf\large Proyecto de Tesis de:} \@programa 
-\@directora
-\@director
-\@directores
-\@codirector
+\@direcciontesis
 \item {\bf\large Duración del proyecto:}  \@duracion
 \item {\bf\large Lugar de Realización:} \@lugar 
 
@@ -147,29 +156,26 @@
 \def\@direccion{221B Baker Street St, Londres, Inglaterra}
 \newcommand\direccion[1]{\renewcommand\@direccion{#1}}
 
-\def\@directora{}
+\newcommand\@direcciontesis{}
+\newcommand\anadirdireccion[2][Directora]{\appto\@direcciontesis{
+\item {\bf \large #1 de Tesis:} #2%
+}}
+
 \newcommand\directora[1]{%
-\renewcommand\@directora{%
-\item {\bf\large Directora de Tesis:} #1%
-}}
+\anadirdirector[Directora]{#1}
+}
 
-\def\@director{}
 \newcommand\director[1]{%
-\renewcommand\@director{%
-\item {\bf\large Director de Tesis:} #1%
-}}
+\anadirdirector[Director]{#1}
+}
 
-\def\@directores{}
 \newcommand\directores[1]{%
-\renewcommand\@directores{%
-\item {\bf\large Directores de Tesis:} #1%
-}}
+\anadirdirector[Directores]{#1}
+}
 
-\def\@codirector{}
 \newcommand\codirector[1]{%
-\renewcommand\@codirector{%
-\item {\bf\large Co\,--Director de Tesis:} #1%
-}}
+\anadirdirector[Co\,--Director]{#1}
+}
 
 \def\maketitlepage{
 \maketitle
