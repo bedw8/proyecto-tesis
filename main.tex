@@ -1,4 +1,4 @@
-\documentclass{proyectotesis}
+\documentclass[hyperref]{proyectotesis}
 
 % Manejo de referencias/bibliografía con el paquete BibLaTex
 \addbibresource{refs.bib}
@@ -11,12 +11,12 @@
 \author{Benjamín Matías Ortiz Edwards}
 \pronom{el}
 \postgrado[Magíster]{en Ciencias con mención en Física.}
-%\directora{}
-%\director{}
-\directores{Dra. Denisse Pastén y Dr. Víctor Muñoz}
-%\codirector{}
+%\anadirdireccion[Directora]{}
+%\anadirdireccion[Director]{}
+\anadirdireccion[Directores]{Dra. Denisse Pastén y Dr. Víctor Muñoz}
+%\anadirdireccion[Co\,-Director]{}
 \duracion{Primer y segundo semestre 2022.}
-\lugar{Grupo Planets (www.planets.cl), Departamento de Física, Facultad de Ciencias, Universidad de Chile.}
+\lugar{Grupo Planets (\url{www.planets.cl}), Departamento de Física, Facultad de Ciencias, Universidad de Chile.}
 \direccion{Las Palmeras 3425, Ñuñoa, Santiago, Chile. \\Dirección Postal: Casilla 653, Santiago, Chile. Fono: (56-2) 2978 7276.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -29,6 +29,9 @@
 \email{bedw@bedw.me}
 
 \begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\cvlabelwidth}{45mm}             % Espaciado del entorno cvlist
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \maketitlepage
 \makepersonalinfo
@@ -37,25 +40,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Educación}
 \begin{cvlist}{}
-\item[\textbf{Educación Superiror}] 
-\item[\textbf{2015 - 2020}] Licenciatura en Ciencias con mención en Física, Universidad de Chile.
 \item[\bf Educación Escolar]
 \item[\textbf{2010 - 2014}]  Enseñanza Básica y Media, Colegio Compañia de María Seminario.
+\item[\textbf{Educación Superiror}] 
+\item[\textbf{2015 - 2020}] Licenciatura en Ciencias con mención en Física, Universidad de Chile.
 \end{cvlist}
 
 \subsection{Experiencia Profesional}
 \begin{cvlist}{}
-\item[\textbf{2019 - Enero}]  \textbf{Practicante}, "Practicas de Verano", DFC-DFI, Universidad de Chile.   
-\item[\textbf{2020 - Primavera}]   \textbf{Ayudante},  Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
-\item[\textbf{2021 - Primavera}]   \textbf{Ayudante},  Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
-\item[\textbf{2021 Febrero -\\ Presente}] \textbf{Programador analista}, Centro de Inteligencia Territorial, Universidad Adolfo Ibañez. 
+\item[\textbf{Enero 2019}]  \textbf{Practicante}, "Practicas de Verano", DFC-DFI, Universidad de Chile.   
+\item[\textbf{Primavera 2020}]   \textbf{Ayudante},  Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
+\item[\textbf{Primavera 2021}]   \textbf{Ayudante},  Métodos de la Física Matemática II, Departamento de Física, Facultad de Ciencias, Universidad de Chile, Segundo Semestre.
+\item[\textbf{Febrero 2021 - Presente}] \textbf{Programador analista}, Centro de Inteligencia Territorial, Universidad Adolfo Ibañez. 
 
 \end{cvlist}
 
 \subsection{Presentaciones en Congresos}
 
 \begin{cvlist}{}
-\item[\textbf{2020}] \textbf{Ortiz Edwards, B.}, Pastén, D., y Muñoz, P. S. A complex network approach on the analysis of the Chilean presidential elections, using Twitter Data, {\it Complex Networks 2019}, Lisboa, Portugal, 10-12 de diciembre.
+\item[\textbf{2020}] \textbf{Ortiz Edwards, B.}, Pastén, D., y Muñoz, V. A complex network approach on the analysis of the Chilean presidential elections, using Twitter Data, {\it Complex Networks 2019}, Lisboa, Portugal, 10-12 de diciembre.
 
 \end{cvlist}
 
@@ -64,42 +67,43 @@
 \section{Exposición General del Proyecto}
 \subsection{Resumen}
 %El análisis redes permite estudiar una gran variedad de sistemas, representando sus distintos elementos o componentes como nodos, y las interacciones o relaciones entre ellos como conexiones. Si bien otros autores han relacionado las redes complejas con física~\cite{albert_statistical_2001, pastor-satorras_statistical_2003,suchecki_conservation_2005, castellano_statistical_2009}, 
-En este proyecto abordaremos el problema de la detección de comunidades en una red, el cual consiste en identificar comunidades de nodos a partir de las conexiones entre ellos. Nos basamos principalmente en lo realizado por~\citet{reichardt_statistical_2006}, quienes desarrollan un algoritmo para detectar comunidades basado en mecánica estadística. Sin embargo, nos interesa el caso en que la red de estudio corresponda a una red legislativa, que presente conexiones con peso --el cual pueda ser de signo negativo.
+En este proyecto abordaremos el problema de la detección de comunidades en una red, el cual consiste en identificar comunidades de nodos a partir de las conexiones entre ellos. Nos basamos principalmente en lo realizado por~\citet{reichardt_statistical_2006}, quienes desarrollan un algoritmo para detectar comunidades basado en mecánica estadística. Sin embargo, nos interesa el caso en que la red de estudio corresponda a una red legislativa, que presente conexiones con peso ---el cual pueda ser de signo negativo.
 
-El caso que queremos abordar es el estudio de polarización de la Cámara de Diputados de Chile durante su último periodo (2018-2021). Para ello se crearán redes a partir de los datos de votación en Sala de la Cámara baja, relacionando a los parlamentarios entre sí según su coordinación o descoordinación al momento de votar, de modo que los parlamentarios con mayor cercanía política tengan conexiones mas intensas (como una fuerza atractiva), mientras que aquellos que difieren más en sus ideas tengan conexiones de peso negativo (como una fuerza repulsiva). 
+El caso que queremos abordar es el estudio de polarización de la Cámara de Diputados de Chile durante su último periodo (2018--2021). Para ello se crearán redes a partir de los datos de votación en Sala de la Cámara baja, relacionando a los parlamentarios entre sí según su coordinación o descoordinación al momento de votar, de modo que los parlamentarios con mayor cercanía política tengan conexiones más intensas (como una fuerza atractiva), mientras que aquellos que difieren más en sus ideas tengan conexiones de peso negativo (como una fuerza repulsiva). 
 
-En cuanto a la polarización en redes legislativas, \citet{neal_sign_2020} sugiere que hay dos tipos distintos de polarización: débil y fuerte, donde la última --a diferencia de la primera-- sí considera conexiones de peso negativo. 
+En cuanto a la polarización en redes legislativas, \citet{neal_sign_2020} sugiere que hay dos tipos distintos de polarización: débil y fuerte, donde la última ---a diferencia de la primera--- sí considera conexiones de peso negativo. 
 %Luego, se detectarán comunidades con el algoritmo de~\citet{reichardt_statistical_2006}, evaluaremos las medidas de modularidad~\cite{newman_finding_2004} e índice de triángulo~\cite{aref_measuring_2018} como indicadores de dos tipos distintos de polarización presentes en redes legislativas, según lo expuesto por~\cite{neal_sign_2020}.
-Entonces, se busca desarrollar una algoritmo para detectar comunidades en la red legislativa ya descrita, pero con una base en mecánica estadística, basándonos en el algoritmo de \citet{reichardt_statistical_2006}, pero que nos permita dar cuenta de la polarización de la Cámara, y poder distinguir si esta es de tipo débil o fuerte.
+Entonces, buscamos desarrollar una algoritmo para detectar comunidades en una red con pesos negativos, utilizando mecánica estadística, basándonos en el algoritmo de \citet{reichardt_statistical_2006}, lo que, en el caso particular de la Cámara de Diputados Chilena, nos permitirá dar cuenta de la polarización de esta, y luego distinguir si es de tipo débil o fuerte.
 
 \subsection{Introducción}
-Las \textbf{redes complejas} son muy útiles para caracterizar sistemas con muchos elementos que interactúan entre sí. Estas nos permiten modelar distintos sistemas mediante una representación de grafos, con nodos y conexiones, para luego obtener distintas propiedades del sistema a partir de métricas, o propiedades estadísticas o topológicas de la red. Estas se han utilizado en diversas disciplinas, como: el estudio de redes sociales~\cite{newman_structure_2003, cantwell_friendship_2021}, redes en internet~\cite{newman_structure_2003}, redes biológicas~\cite{newman_structure_2003, da_fontoura_costa_complex_2008}; en epidemiología~\cite{karrer_competing_2011}, ahora más recientemente identificando agentes difusores de COVID~\cite{montes-orozco_identification_2020}; y por otro lado, en la categorización de subtormentas magnetosféricas~\cite{dods_network_2015}, por mencionar algunos ejemplos.\\
+Las \textbf{redes complejas} son muy útiles para caracterizar sistemas con muchos elementos que interactúan entre sí. Estas nos permiten modelar distintos sistemas mediante una representación de grafos, con nodos y conexiones, para luego obtener distintas propiedades del sistema a partir de métricas, o propiedades estadísticas o topológicas de la red. Estas se han utilizado en diversas disciplinas, como el estudio de redes sociales~\cite{newman_structure_2003, cantwell_friendship_2021}, redes en internet~\cite{newman_structure_2003}, redes biológicas~\cite{newman_structure_2003, da_fontoura_costa_complex_2008}; en epidemiología~\cite{karrer_competing_2011}, ahora más recientemente identificando agentes difusores de COVID~\cite{montes-orozco_identification_2020}; y por otro lado, en la categorización de subtormentas magnetosféricas~\cite{dods_network_2015}, por mencionar algunos ejemplos.\\
 
-Si bien hay diversos trabajos que vinculan redes con física --por ejemplo estudiando la mecánica estadística de redes complejas~\cite{albert_statistical_2001, pastor-satorras_statistical_2003}, o abordando la dinámica de opiniones en redes, con modelos sociofísicos~\cite{suchecki_conservation_2005, castellano_statistical_2009}-- en este proyecto queremos abordar un problema en particular: la \textbf{detección de comunidades}, la cual consiste en identificar clusters o comunidades de nodos a partir de las conexiones que tienen entre sí, y de que tan intensas sean estas.\\
+Si bien hay diversos trabajos que vinculan redes con física ---por ejemplo estudiando la mecánica estadística de redes complejas~\cite{albert_statistical_2001, pastor-satorras_statistical_2003}, o abordando la dinámica de opiniones en redes, con modelos sociofísicos~\cite{suchecki_conservation_2005, castellano_statistical_2009}--- en este proyecto queremos abordar un problema en particular: la \textbf{detección de comunidades}, el cual consiste en identificar clusters o comunidades de nodos a partir de las conexiones que tienen entre sí, y de qué tan intensas sean estas.\\
 
 %Un area en donde sin duda han tenido un gran impacto son las ciencias sociales. En estas, las redes permiten estudiar las relaciones entre personas (o grupos de personas) como conexiones, pudiendo estas ser de diversos tipos. Por ejemplo: relaciones de amistad, sexuales, de trabajo, políticas, entre otras.\\
 
-Para detectar comunidades hay diversos algoritmos, pero sin duda los mas utilizados son aquellos que maximizan la modularidad ($Q$)~\cite{newman_fast_2004, clauset_finding_2004, duch_community_2005, blondel_fast_2008, arab_modularity_2012, chen_community_2014}. Esta cantidad fue definida inicialmente por \citet{newman_finding_2004} y da cuenta de que tan ``modular'' es una red según una partición de comunidades --entendiendo una partición de comunidades como el conjunto de etiquetas que indican las comunidades asignadas a cada nodo en la red. Como se mencionó anteriormente, muchos algoritmos maximizan esta medida para detectar comunidades. En términos sencillos, estos prueban distintas comunidades y evalúan la modularidad. Luego, la partición de comunidades que maximiza la modularidad es el \textit{output} del algoritmo.\\
+Para detectar comunidades hay diversos algoritmos, pero sin duda los más utilizados son aquellos que maximizan la modularidad ($Q$)~\cite{newman_fast_2004, clauset_finding_2004, duch_community_2005, blondel_fast_2008, arab_modularity_2012, chen_community_2014}. Esta cantidad fue definida inicialmente por \citet{newman_finding_2004} y da cuenta de qué tan ``modular'' es una red según una partición de comunidades ---entendiendo una partición de comunidades como el conjunto de etiquetas que indican las comunidades asignadas a cada nodo en la red. Como se mencionó anteriormente, muchos algoritmos maximizan esta medida para detectar comunidades. En términos sencillos, estos prueban distintas comunidades y evalúan la modularidad. Luego, la partición de comunidades que maximiza la modularidad es el \textit{output} del algoritmo.\\
 
-Sin embargo, pese a que este problema se suele abordar con un enfoque casi netamente matemático, hay autores que lo relacionan con principios de \textbf{mecánica estadística}. Reichardt y Bornholdt desarrollaron el algoritmo llamado ``Spin-Glass'' para detectar comunidades ~\cite{reichardt_statistical_2006}, el cual aborda el problema definiendo un hamiltoniano que debe minimizarse para obtener la partición de comunidades óptima. La idea detrás del algoritmo es, en un vidrio de \textit{spin}, hacer el símil entre las partículas con mismo \textit{spin}, con nodos de una misma comunidad, definiendo las interacciones \textit{spin-spin} a partir de las conexiones de la red. Los autores además demostraron que la minimización de la energía (del hamiltoniano) es equivalente a la maximización de la modularidad.\\
+Sin embargo, pese a que este problema se suele abordar con un enfoque casi netamente matemático, hay autores que lo relacionan con principios de \textbf{mecánica estadística}. Reichardt y Bornholdt desarrollaron el algoritmo llamado ``Spin-Glass'' para detectar comunidades ~\cite{reichardt_statistical_2006}, el cual aborda el problema definiendo un Hamiltoniano que debe minimizarse para obtener la partición de comunidades óptima. La idea detrás del algoritmo es, en un vidrio de \textit{spin}, hacer el símil entre las partículas con mismo \textit{spin}, con nodos de una misma comunidad, definiendo las interacciones \textit{spin-spin} a partir de las conexiones de la red. Los autores además demostraron que la minimización de la energía (del Hamiltoniano) es equivalente a la maximización de la modularidad.\\
 
-Una aplicación concreta para la para la detección de comunidades es el estudio de polarización (política) en redes legislativas --en donde se estudian las relaciones entre los miembros de  parlamentos de distintos países, usando análisis de redes.\\
+Una aplicación concreta para la detección de comunidades es el estudio de polarización (política) en redes legislativas ---en donde se estudian las relaciones entre los miembros de parlamentos, usando análisis de redes, lo cual se ha revisado para diversos países.\\
 
-Como contexto, la mayoría trabajos de redes legislativas~\cite{neal_sign_2020, marenco_time_2020, intal_dissent_2021, schoch_legislators_2020, aleman_explaining_2013, zhang_community_2007, fowler_connecting_2007, porter_network_2005, andris_rise_2015, briatte_network_2016, le_foulon_moran_cooperation_2020}
-tienen más o menos en común la forma en que crean las redes. En estas los \textbf{parlamentarios se representan como nodos, y las relaciones entre ellos como conexiones}, las cuales generalmente tienen pesos, indicando que tan intensa en la relación. Qué se considera como relaciones entre los parlamentarios varía de trabajo en trabajo, pero los más común es que las relaciones indiquen patrocinio en conjunto a las propuestas de ley~\cite{neal_sign_2020, zhang_community_2007, le_foulon_moran_cooperation_2020,fowler_connecting_2007}, co-participación en comisiones~\cite{porter_network_2005}, o la coordinación (o descoordinación) de los parlamentarios al momento de votar~\cite{andris_rise_2015, marenco_time_2020, schoch_legislators_2020, intal_dissent_2021}.\\
+Como contexto, la mayoría de los trabajos sobre redes legislativas~\cite{neal_sign_2020, marenco_time_2020, intal_dissent_2021, schoch_legislators_2020, aleman_explaining_2013, zhang_community_2007, fowler_connecting_2007, porter_network_2005, andris_rise_2015, briatte_network_2016, le_foulon_moran_cooperation_2020}
+tienen más o menos en común la forma en que crean las redes. En estas los \textbf{parlamentarios se representan como nodos, y las relaciones entre ellos como conexiones}, las cuales generalmente tienen pesos, indicando qué tan intensa es la relación. Qué se considera como relaciones entre los parlamentarios varía de trabajo en trabajo, pero lo más común es que las relaciones indiquen patrocinio en conjunto a las propuestas de ley~\cite{neal_sign_2020, zhang_community_2007, le_foulon_moran_cooperation_2020,fowler_connecting_2007}, co-participación en comisiones~\cite{porter_network_2005}, o la coordinación (o descoordinación) de los parlamentarios al momento de votar~\cite{andris_rise_2015, marenco_time_2020, schoch_legislators_2020, intal_dissent_2021}.\\
 
-Para estudiar la polarización de en una red legislativa es necesario detectar comunidades en ella. Luego, la red se considera polarizada cuando los nodos de una misma comunidad tienen interacciones más fuertes entre sí, mientras que más débiles (o nulas) con los nodos de distintas comunidades. Esta concepción de polarización es llamada ``polarización débil'' por \citet{neal_sign_2020}. Sin embargo, en su trabajo también propone un segundo tipo de polarización, que denomina ``polarización fuerte''. Esta consiste en que, además de haber muchas conexiones (e intensas) entre los nodos de una misma comunidad, entre nodos de comunidades diferentes existan conexiones pero de peso negativo. Una manera de interpretar esto es considerar las conexiones de peso positivo como fuerzas atractivas, y las de peso negativo repulsivas --de este modo habrán individuos que se ``acercan'', mientras otros se ``alejan''.\\
+Para estudiar la polarización en una red legislativa es necesario detectar comunidades en ella. Luego, la red se considera polarizada cuando los nodos de una misma comunidad tienen interacciones más fuertes entre sí, mientras que más débiles (o nulas) con los nodos de distintas comunidades. Esta concepción de polarización es llamada ``polarización débil'' por \citet{neal_sign_2020}. Sin embargo, en su trabajo también propone un segundo tipo de polarización, que denomina ``polarización fuerte''. Esta consiste en que, además de haber muchas conexiones (e intensas) entre los nodos de una misma comunidad, entre nodos de comunidades diferentes existan conexiones pero de peso negativo. Una manera de interpretar esto es considerar las conexiones de peso positivo como fuerzas atractivas, y las de peso negativo repulsivas ---de este modo habrán individuos que se ``acercan'', mientras otros se ``alejan''.\\
 
-Finalmente, para cuantificar la polarización, varios autores usan la misma medida de modularidad como un indicador de esto --considerando que mientras más alta sea la modularidad, la red está más polarizada. Sin embargo, esto solo servirá para medir polarización débil, ya que la modularidad como tal no está definida para conexiones con pesos negativos. Ante esto, \citet{neal_sign_2020} propone usar el índice de triángulo~\cite{aref_measuring_2018} para cuantificar la polarización fuerte. Este índice indica que tan balanceada se encuentra la red, entendiendo balance como la ``proporción'' entre conexiones de peso positivo y negativo en la red.\\
+Finalmente, para cuantificar la polarización, varios autores usan la misma medida de modularidad como un indicador de esto ---considerando que mientras más alta sea la modularidad, la red está más polarizada. Sin embargo, esto solo servirá para medir polarización débil, ya que la modularidad como tal no está definida para conexiones con pesos negativos. Ante esto, \citet{neal_sign_2020} propone usar el índice de triángulo~\cite{aref_measuring_2018} para cuantificar la polarización fuerte. Este índice indica qué tan balanceada se encuentra la red, entendiendo balance como la ``proporción'' entre conexiones de peso positivo y negativo en la red.\\
 
-Este proyecto busca usar estas ideas y aplicarlas en el estudio de la polarización de la Cámara de Diputados de Chile, a partir de las interacciones entre los miembros de esta. La motivación principal es que en la literatura, si bien encontramos estudios sobre la Cámara de Diputados Chilena con análisis de redes, estos solo abarcan periodos legislativos desde el inicio de la década de los 2000 hasta el 2017~\cite{aleman_explaining_2013, le_foulon_moran_cooperation_2020}. Sin embargo, desde entonces la política Chilena ha sufrido cambios significativos: a partir del 2018 ingresan nuevas fuerzas políticas al parlamento, y en medio del periodo legislativo que inicia ese año ocurre un estallido social y una pandemia.\\
+Este proyecto busca usar estas ideas y aplicarlas en el estudio de la polarización de la Cámara de Diputados de Chile, a partir de las interacciones entre los miembros de esta. La motivación principal es que en la literatura, si bien encontramos estudios sobre la Cámara de Diputados Chilena con análisis de redes, estos solo abarcan periodos legislativos desde el inicio de la década de los 2000 hasta el 2017~\cite{aleman_explaining_2013, le_foulon_moran_cooperation_2020}. Sin embargo, desde entonces la política chilena ha sufrido cambios significativos: a partir del 2018 ingresan nuevas fuerzas políticas al parlamento, y en medio del periodo legislativo que inicia ese año ocurre un estallido social y una pandemia.\\
 
-Ahora, nos preguntamos: ¿Es posible medir la polarización política de la Cámara de de Diputados de Chile desde el 2018 en adelante, usando análisis de redes? De ser posible, ¿Esta polarización es de tipo débil o fuerte? Por otro lado, ¿Habrá un método basado en mecánica estadística para detectar comunidades, de forma similar al planteado por \citet{reichardt_statistical_2006},  que sea equivalente a la maximización del índice de triángulo, para así dar cuenta de la polarización fuerte? %Por último, también, ¿Es el Índice del triángulo la forma más optima de cuantificar la polarización fuerte?
+Ahora, nos preguntamos: ¿Habrá un método basado en mecánica estadística para detectar comunidades, de forma similar al planteado por \citet{reichardt_statistical_2006},  que sea equivalente a la maximización del índice de triángulo, para así dar cuenta de la polarización fuerte? Por otro lado, ¿es posible medir la polarización política de la Cámara de Diputados de Chile desde el 2018 en adelante, usando análisis de redes? De ser posible, ¿esta polarización es de tipo débil o fuerte?
+ %Por último, también, ¿Es el Índice del triángulo la forma más optima de cuantificar la polarización fuerte?
 
 \subsection{Objetivos}
 
 %Se busca desarrollar un algoritmo que permita detectar comunidades en redes con pesos negativos, a partir de principios de mecánica estadística, considerando su posterior aplicación en la 
-En el contexto del estudio de interacciones entre los miembros de la Cámara de Diputados de Chile, se busca elaborar un algoritmo que nos permita detectar comunidades en una red con pesos negativos, y posteriormente cuantificar la polarización de la Cámara, a partir de principios de mecánica estadística. Luego, se espera poder identificar si la Cámara presenta polarización débil o fuerte.
+El objetivo es elaborar un algoritmo que nos permita detectar comunidades en una red con pesos negativos, a partir de principios de mecánica estadística. También esperamos que este, en el caso particular del análisis de la Cámara de Diputados de Chile, nos permita cuantificar la polarización de la Cámara, y luego identificar si la polarización es débil o fuerte.
 
 %También evaluaremos los algoritmos de detección de comunidades basados en la maximización de modularidad como una medida ``óptima'' de polarización política. Para ello se propone comparar los valores de modularidad y , con el índice de triángulo, al considerar interacciones negativas (repulsivas). 
 %También se busca desarrollar una medida de polarización basada en mecánica estadística, basándonos en trabajos similares.
@@ -110,7 +114,7 @@ En el contexto del estudio de interacciones entre los miembros de la Cámara de 
 
 \item{\bf Comparación entre la modularidad y el índice del triángulo.} Con la red construida se propone detectar comunidades usando el algoritmo ``Spín-Glass''~\cite{reichardt_statistical_2006}, para luego medir la modularidad~\cite{newman_finding_2004}, y comparar esta cantidad con el índice de triángulo~\cite{aref_measuring_2018}. El propósito de esto es identificar nociones de polarización débil o fuerte con las herramientas que en este momento tenemos a disposición.
 
-\item {\bf Desarrollo de nuevo algoritmo de detección de comunidades, basada en mecánica estadística.} De forma similar a lo realizado po \citet{reichardt_statistical_2006}, se busca crear algoritmo para detectar comunidades en una red con conexiones negativas, basado en la minimización de un hamiltoniano, pero que se relacione con la maximización del índice de triangulo para dar cuenta de la polarización fuerte en un red legislativa.
+\item {\bf Desarrollo de nuevo algoritmo de detección de comunidades, basada en mecánica estadística.} De forma similar a lo realizado po \citet{reichardt_statistical_2006}, busca crear algoritmo para detectar comunidades en una red con conexiones negativas, basado en la minimización de un Hamiltoniano, pero que se relacione con la maximización del índice de triángulo para dar cuenta de la polarización fuerte en un red legislativa.
 
 \end{itemize}
 
@@ -120,25 +124,25 @@ Se busca caracterizar la interacción entre miembros de la Cámara de Diputados 
 
 En términos simples, cada nodo de la red representará un parlamentario, y estos tendrán conexiones según la coordinación (o descoordinación) de los representantes al momento de votar en Sala.\\
 
-Para una votación en Sala $k$, representaremos los votos mediante el vector 
+Para una votación en Sala $p$, representaremos los votos mediante el vector 
 \begin{equation}
-    v^k = \{u_1,\dots,u_n\}
+    v^p = \{u_1,\dots,u_n\}
 \end{equation}
 con $u_i$ la opción que el o la parlamentaria $i$ votó. Esta será 1 si el voto fue a favor, -1 si fue en contra y 0 en caso de abstención o ausencia.
 
-Realizando el producto externo de $v^k$ consigo mismo, se obtiene la matriz $M^k$ que representa la coordinación de los parlamentarios en la votación $k$. De esta forma la coordenada $M^k_{ij}$ será 1 si los parlamentarios $i$ y $j$ votaron lo mismo, -1 si votaron opciones opuestas, y 0 si alguno se abstuvo o estuvo ausente. Entonces, ahora, para $m$ votaciones, sumamos las matrices $M^k$.
+Realizando el producto externo de $v^p$ consigo mismo, se obtiene la matriz $M^p$ que representa la coordinación de los parlamentarios en la votación $p$. De esta forma la coordenada $M^p_{ij}$ será 1 si los parlamentarios $i$ y $j$ votaron lo mismo, -1 si votaron opciones opuestas, y 0 si alguno se abstuvo o estuvo ausente. Entonces, ahora, para $m$ votaciones, sumamos las matrices $M^p$.
 \begin{equation}
-    A_{ij} = \sum_k^m M^k_{ij} \label{adj}
+    A_{ij} = \sum_p^m M^p_{ij} \label{adj}
 \end{equation}
-Con esta matriz ya podemos crear la red. Si una coordenada $A_{ij}\neq 0$ entonces creamos una conexión entre los nodos $i$ y $j$ , y con una peso igual a $A_{ij}$. Para los casos $A_{ij} = 0$, simplemente no se crea ninguna conexión entre los nodos $i$ y $j$.\\
+Con esta matriz ya podemos crear la red. Si una coordenada $A_{ij}\neq 0$ entonces creamos una conexión entre los nodos $i$ y $j$ , y con un peso igual a $A_{ij}$. Para los casos $A_{ij} = 0$, simplemente no se crea ninguna conexión entre los nodos $i$ y $j$.\\
 
 Por otro lado, la modularidad~\cite{newman_finding_2004} se define por
 \begin{equation}
     Q = \frac{1}{2m}\sum_{ij} \left( A_{ij} - \frac{k_i k_j}{2m}  \right) \delta(\sigma_i,\sigma_j) \label{mod}
 ,\end{equation}
-con $k_i$ la suma de los pesos de las conexiones del nodo $i$, $m = \frac{1}{2} \sum_i k_i$. También tenemos $\sigma_i$ que indica a que comunidad pertenece el nodo $i$, y $\delta(\sigma_i,\sigma_j)$ se define de tal forma que es 1 si los nodos $i$ y $j$ pertenecen a la misma comunidad, o 0 en caso contrario.\\
+con $k_i$ la suma de los pesos de las conexiones del nodo $i$, $m = \frac{1}{2} \sum_i k_i$. También tenemos $\sigma_i$ que indica a qué comunidad pertenece el nodo $i$, y $\delta(\sigma_i,\sigma_j)$ se define de tal forma que es 1 si los nodos $i$ y $j$ pertenecen a la misma comunidad, o 0 en caso contrario.\\
 
-Queda por definir cuantas y cuales votaciones se considerarán para armar la red. Se plantea también la idea de armar varias redes a partir de votaciones ocurridas en periodos o intervalos de tiempo distintos. Al agregar la dimensión temporal podemos un estudio longitudinal de la polarización, y analizar como esta cambia (o no) en el tiempo, por ejemplo.
+Queda por definir cuántas y cuáles votaciones se considerarán para armar la red. Consideramos también la idea de armar varias redes a partir de votaciones ocurridas en periodos o intervalos de tiempo distintos. Al agregar la dimensión temporal podemos realizar un estudio longitudinal de la polarización, y analizar cómo esta cambia (o no) en el tiempo, por ejemplo.
 
 \subsubsection{Comparación entre la modularidad y el índice de triángulo} 
 Luego de crear la red a partir de la matriz de adjacencia de la ecuación \eqref{adj}, se busca medir la modularidad y el índice de triángulo para compararlos. Para ello se propone momentáneamente ``ignorar'' las conexiones negativas, remplazando todas las entradas de $A_{kl} < 0$. Ahora, con esta red de solo conexiones de peso positivo, detectaremos comunidades con el método ``Spin-Glass''~\cite{reichardt_statistical_2006} y con la partición de comunidades resultante, a la red le calculamos la modularidad. \\
@@ -149,7 +153,7 @@ Luego, esta medida se comparará con la modularidad ya calculada. Este proceso p
 
 Para comprender la definición del índice de triángulo~\cite{aref_measuring_2018} primero introduciremos lo que son los ciclos balanceados y no balanceados~\cite{aref_measuring_2018}.\\
 
-Un ciclo, es decir, una secuencia de nodos conectados en la que el primer nodo es igual al último, será balanceado si el producto de sus pesos de sus conexiones es mayor a cero. En caso de que sea menor a cero el ciclo se considera no balanceado.\\
+Un ciclo, es decir, una secuencia de nodos conectados en la que el primer nodo es igual al último, será balanceado si el producto de sus pesos de sus conexiones es mayor a cero. En caso de que sea menor que cero el ciclo se considera no balanceado.\\
 
 Ahora, $O_k^+$ dará cuenta de la cantidad de ciclos balanceados de $k$ nodos, mientras que $O_k^-$ la cantidad de ciclos de $k$ nodos no balanceados. Además, $O_k = O_k^+ + O_k^-$ será la cantidad total de ciclos de $k$ nodos. Finalmente, el Índice del triángulo se define como
 \begin{equation}
@@ -157,9 +161,9 @@ Ahora, $O_k^+$ dará cuenta de la cantidad de ciclos balanceados de $k$ nodos, m
 \end{equation}
 
 \subsubsection{Desarrollo de nuevo algoritmo de detección de comunidades, basada en mecánica estadística} 
-Como se mencionó anteriormente, Reichardt y Bornholdt desarrollaron el algoritmo ``Spin-Glass'' para detectar comunidades~\cite{reichardt_statistical_2006}. El principio detrás de este consiste en la minimización de un hamiltoniano. También demostraron que minimizar tal hamiltoniano es equivalente a maximizar la modularidad bajo ciertas condiciones.
+Como se mencionó anteriormente, Reichardt y Bornholdt desarrollaron el algoritmo ``Spin-Glass'' para detectar comunidades~\cite{reichardt_statistical_2006}. El principio detrás de este consiste en la minimización de un Hamiltoniano. También demostraron que minimizar tal Hamiltoniano es equivalente a maximizar la modularidad bajo ciertas condiciones.
 
-Al momento de desarrollar el hamiltoniano, los autores lo abordaron de la siguiente manera
+Al momento de desarrollar el Hamiltoniano, los autores lo abordaron de la siguiente manera
 \begin{align}
 \begin{split}
     \mathcal{H}(\{\sigma\}) = &- \underbrace{\sum_{i\neq j} a_{ij}A_{ij}\delta(\sigma_i,\sigma_j)}_{(a)} + \underbrace{\sum_{i\neq j} b_{ij}(1 - A_{ij})\delta(\sigma_i,\sigma_j)}_{(b)} \\
@@ -167,25 +171,25 @@ Al momento de desarrollar el hamiltoniano, los autores lo abordaron de la siguie
 \end{split}
 \label{Ham}
 \end{align}
-En \eqref{Ham}, $\sigma$ representa la partición de comunidades, donde, en concreto $\sigma_i$ indica a que comunidad pertenece el nodo $i$. Luego $\delta(\sigma_i,\sigma_j)$ se define de tal forma que es 1 si los nodos $i$ y $j$ pertenecen a la misma comunidad, o 0 en caso contrario.
+En \eqref{Ham}, $\sigma$ representa la partición de comunidades, donde, en concreto $\sigma_i$ indica a qué comunidad pertenece el nodo $i$. Luego $\delta(\sigma_i,\sigma_j)$ se define de tal forma que es 1 si los nodos $i$ y $j$ pertenecen a la misma comunidad, o 0 en caso contrario.
 
-Notemos también lo siguiente. El término $(a)$ corresponde a las conexiones entre nodos de una misma comunidad, y $(d)$ las desconexiones entre nodos de distintas comunidades. Por otro lade tendremos que el término  $(b)$ representa las desconexiones entre nodos de una misma comunidad, mientras que $(c)$ las conexiones entre nodos de distintas comunidades.\\
+Notemos también lo siguiente. El término $(a)$ corresponde a las conexiones entre nodos de una misma comunidad, y $(d)$ las desconexiones entre nodos de distintas comunidades. Por otro lado, tendremos que el término  $(b)$ representa las desconexiones entre nodos de una misma comunidad, mientras que $(c)$ las conexiones entre nodos de distintas comunidades.\\
 
-Notando el signo antes de cada uno de estos términos podemos apreciar como este tipo de hamiltoniano busca ``premiar'' a las conexiones intra-comunidades y a las desconexiones inter-comunidades, al mismo tiempo que ``penaliza'' las conexiones inter-comunidades o la ausencia de conexiones entre nodos de una misma comunidad.
+Notando el signo de cada uno de estos términos podemos apreciar cómo este tipo de Hamiltoniano busca ``premiar'' a las conexiones intra-comunidades y a las desconexiones inter-comunidades, al mismo tiempo que ``penaliza'' las conexiones inter-comunidades o la ausencia de conexiones entre nodos de una misma comunidad.
 \\
 
-Siguiendo una lógica similar a lo recién planteado, se busca desarrollar un hamiltoniano que nos permita detectar comunidades, ahora, en una red con conexiones de peso negativo, y cuya minimización sea equivalente a la maximización del índice de triángulo.
+Siguiendo una lógica similar a lo recién planteado, buscamos desarrollar un Hamiltoniano que nos permita detectar comunidades, ahora, en una red con conexiones de peso negativo, y cuya minimización sea equivalente a la maximización del índice de triángulo.
 
 \subsection{Trabajo adelantado}
-Anteriormente ya hemos realizamos un análisis de redes a la Cámara de Diputados. Para esto se usaron datos públicos de las votaciones en Sala ocurridas entre Marzo de 2018 y Diciembre 2020, los cuales están disponibles en línea mediante una API de libre acceso.\\ 
+Anteriormente ya hemos realizamos un análisis de redes a la Cámara de Diputados. Para esto se usaron datos públicos de las votaciones en Sala ocurridas entre Marzo de 2018 y Diciembre 2020, los cuales están disponibles en línea mediante una API de libre acceso~\cite{api}.\\ 
 
-Se construyeron varias redes, y la manera en que se cada construyó cada  una fue la siguiente. Para una votación, si dos parlamentarios votan la misma opción (a favor, en contra o  abstención), se crea una conexión entre ambos parlamentarios, y en caso contrario, no se crea ninguna conexión. Ahora, para varias votaciones el procedimiento es similar, sin embargo en este caso a las conexiones se les asignó un peso, el cual fue igual a la cantidad de veces que cada par de parlamentarios coincidió al momento de votar en las votaciones consideradas.
+Se construyeron varias redes, y la manera en que se construyó cada una fue la siguiente: para una votación, si dos parlamentarios votan la misma opción (a favor, en contra o  abstención), se crea una conexión entre ambos parlamentarios, y en caso contrario, no se crea ninguna conexión. Ahora, para varias votaciones el procedimiento es similar, sin embargo en este caso a las conexiones se les asignó un peso, el cual fue igual a la cantidad de veces que cada par de parlamentarios coincidió en su opción al momento de votar en las votaciones consideradas.
 
 De esta manera se crearon redes mensuales, es decir considerando las votaciones ocurridas en el periodo de un mes, para cada mes.
 
-Notemos que la diferencia de esto con lo propuesto el la sección de Metodología, es que acá no consideramos las conexiones con peso negativo cuando los parlamentarios votan opciones opuestas.\\
+Notemos que la diferencia de esto con lo propuesto en la sección de Metodología, es que acá no consideramos las conexiones con peso negativo cuando los parlamentarios votan opciones opuestas.\\
 
-Luego, a cada a red mensual se le detectaron comunidades usando 2 algoritmos distintos distintos (Louvain~\cite{blondel_fast_2008} y Spin-Glass~\cite{reichardt_statistical_2006}) y se les midió la modularidad con cada una de la particiones de comunidades obtenidas. En la figura \ref{modfig} podemos ver como varia la modularidad en el tiempo, mientras que en la figura \ref{N} vemos el número de comunidades detectadas.\\
+Luego, a cada red mensual se le detectaron comunidades usando dos algoritmos distintos distintos (Louvain~\cite{blondel_fast_2008} y Spin-Glass~\cite{reichardt_statistical_2006}) y se les midió la modularidad con cada una de la particiones de comunidades obtenidas. En la figura \ref{modfig} podemos ver cómo varía la modularidad en el tiempo, mientras que en la figura \ref{N} vemos el número de comunidades detectadas.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\linewidth]{mod.pdf} 
@@ -197,7 +201,7 @@ Luego, a cada a red mensual se le detectaron comunidades usando 2 algoritmos dis
     \centering
     \includegraphics[width=0.85\linewidth]{N.pdf} 
     \vspace{-5mm}
-    \caption{Numero de comunidades detectada por cada algoritmo, en el tiempo. Las franjas rojas representan meses en que ocurrieron hitos políticos. Las franjas rojas representan meses en que ocurrieron hitos políticos de la Tabla \ref{hp}.}
+    \caption{Número de comunidades detectada por cada algoritmo, en el tiempo. Las franjas rojas representan meses en que ocurrieron hitos políticos. Las franjas rojas representan meses en que ocurrieron hitos políticos de la Tabla \ref{hp}.}
     \label{N}
 \end{figure}
 
@@ -205,7 +209,7 @@ Luego, a cada a red mensual se le detectaron comunidades usando 2 algoritmos dis
 
 \begin{table}[ht!]
     \centering
-    \caption{Hitos políticos relevantes del periodo 2018-2020.}
+    \caption{Hitos políticos relevantes del periodo 2018--2020.}
     \label{hp} 
     \vspace{3mm}
     \begin{tabular}{r|l}
@@ -220,13 +224,13 @@ Luego, a cada a red mensual se le detectaron comunidades usando 2 algoritmos dis
 \end{table}
 
 
-Primero notamos que los 2 métodos resultaron prácticamente idénticos para los efectos de calcular la modularidad, habiendo mayores diferencias en en el número de comunidades detectadas. Las figuras sugieren que el método Spin-Glass es mucho más sensible para la detección de comunidades, ya que este número fluctúa mucho más que para el otro algoritmo. También se puedo apreciar que los peaks más altos de modularidad (Sep `18 y Marzo `20) coinciden con una baja del numero de comunidades respecto a los meses anteriores.
+Primero notamos que los dos métodos resultaron prácticamente idénticos para los efectos de calcular la modularidad, habiendo mayores diferencias en el número de comunidades detectadas. Las figuras sugieren que el método Spin-Glass es mucho más sensible para la detección de comunidades, ya que este número fluctúa mucho más que para el otro algoritmo. También se puede apreciar que los peaks más altos de modularidad (Sep `18 y Marzo `20) coinciden con una baja del número de comunidades respecto a los meses anteriores.
 
-Por otro lado, estos dos meses fueron bastante activos en términos legislativos. Desde Diciembre de 2020 hasta Marzo de 2020 el parlamento aprueba el cambio el cambio constitucional que permitiría el nuevo proceso constituyente, y también discute aspectos relevantes de este, como la paridad de genero, siendo esta aprobada en marzo. Por otro lado, durante Junio de 2018, el parlamento intenta responder a las demandas del movimiento feminista que desde Mayo de ese año ya había generado grandes manifestaciones a lo largo de todo Chile. En esta ocasión, un grupo de parlamentarios presenta un proyecto de aborto libre, lo que generó harta controversia mediática.\\
+Por otro lado, estos dos meses fueron bastante activos en términos legislativos. Desde Diciembre de 2020 hasta Marzo de 2020 el parlamento aprueba el cambio constitucional que permitiría el nuevo proceso constituyente, y también discute aspectos relevantes de este, como la paridad de género, siendo esta aprobada en marzo. Por otro lado, durante Junio de 2018, el parlamento intenta responder a las demandas del movimiento feminista que desde Mayo de ese año ya había generado grandes manifestaciones a lo largo de todo Chile. En esta ocasión, un grupo de parlamentarios presenta un proyecto de aborto libre, lo que generó harta controversia mediática.\\
 
-Por último, es importante mencionar que para este análisis no se consideraron todas las votaciones dentro de cada mes. De forma similar a lo realizado en otros trabajos~\cite{andris_rise_2015, schoch_legislators_2020}, en busca de usar las votaciones más relevantes, estas se filtraron previamente. En concreto, se usaron solo las votaciones con al menos 130 parlamentarios presentes (de un total de 155) y también se ignoraron las votaciones cuya opción mayoritaria obtuviese mas del 95\% de lo votos.
+Por último, es importante mencionar que para este análisis no se consideraron todas las votaciones dentro de cada mes. De forma similar a lo realizado en otros trabajos~\cite{andris_rise_2015, schoch_legislators_2020}, en busca de usar las votaciones más relevantes, estas se filtraron previamente. En concreto, se usaron solo las votaciones con al menos 130 parlamentarios presentes (de un total de 155) y también se ignoraron las votaciones cuya opción mayoritaria obtuviese mas del 95\% de los votos.
 
-Sin embargo, los resultados fueron muy sensibles a estos dos filtros (cantidad de parlamentarios presentes, porcentaje de la opción mayoritaria). Al variar muy poco estos parámetros, los resultados cambiaron mucho. Algo similar ocurrió al cambiar el intervalo de tiempo que contemplaba cada red (de un mes a un periodo de dos semanas, por ejemplo), probablemente por que no todas las semanas (o meses) hay la misma cantidad de votaciones en la Cámara. 
+Sin embargo, los resultados fueron muy sensibles a estos dos filtros (cantidad de parlamentarios presentes, porcentaje de la opción mayoritaria). Al variar muy poco estos parámetros, los resultados cambiaron mucho. Algo similar ocurrió al cambiar el intervalo de tiempo que contemplaba cada red (de un mes a un periodo de dos semanas, por ejemplo), probablemente porque no todas las semanas (o meses) hay la misma cantidad de votaciones en la Cámara. 
 
 La sensibilidad a estos parámetros es un punto que también se espera estudiar con mayor detalle en este proyecto. 
 
@@ -257,7 +261,7 @@ Para llevar a cabo este proyecto se necesitan utilizar las dependencias del Depa
 \item Proyecto FONDECYT N$^\circ$ 1201967.
 \end{itemize}
 
-\printbibliography
+\printbibliography[heading=bibintoc]
 
 \end{document}
 
