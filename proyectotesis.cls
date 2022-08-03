@@ -68,7 +68,7 @@
 
 \def\maketitle{
 \thispagestyle{firstpage}
-\newgeometry{letterpaper, textheight=8.5in, hmargin=2cm,bottom=1in}
+\newgeometry{textheight=8.5in, hmargin=2cm,bottom=1in}
 \afterpage{\aftergroup\restoregeometry}
 \begin{center}
     \vspace{5mm}\bf \huge  Formulario de Proyecto de Tesis para \@postgrado \\
@@ -141,19 +141,23 @@
 	\pronom{#1}
 }
 
+
 \newcommand\postgrado[2][Postgrado]{
 \def\@postgrado{#1}
 \def\@programa{\@postgrado~#2}
 }
 
+\def\@title{El pulento título de proyecto}
+\def\@author{Juan Carlos Bodoque}
 
-\def\@duracion{Tal y tal semestre}
+
+\def\@duracion{}
 \newcommand\duracion[1]{\renewcommand\@duracion{#1}}
 
-\def\@lugar{Grupo Tanto, Facultad X, Universidad de Chile}
+\def\@lugar{}
 \newcommand\lugar[1]{\renewcommand\@lugar{#1}}
 
-\def\@direccion{221B Baker Street St, Londres, Inglaterra}
+\def\@direccion{}
 \newcommand\direccion[1]{\renewcommand\@direccion{#1}}
 
 \newcommand\@direcciontesis{}
